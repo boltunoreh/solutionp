@@ -1,0 +1,8 @@
+<?php /*The index*/ ?>
+<?php
+get_header();
+?>
+
+		
+
+<? get_footer(); ?>
