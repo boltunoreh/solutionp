@@ -53,7 +53,7 @@ require_once(tmpl_ajax . 'ajax.counter.php');
 add_action('wp_enqueue_scripts','tsl_enqueue_fe_styles');
 function tsl_enqueue_fe_styles() {
 	wp_enqueue_style('css-general', tmpl_css.'style.css');
-	wp_enqueue_style('css-fonts', tmpl_css.'fonts.css');
+	//wp_enqueue_style('css-fonts', tmpl_css.'fonts.css');
 }
 
 ///////////////////////////////////////Все, что хотим добавить в Header///////////////////////////
@@ -135,6 +135,14 @@ function tsl_post_type_register() {
 		'hierarchical' => true,
 		'rewrite' => array('slug' => 'position')
 	));
+}
+
+//BOLTUN_OREH
+function get_assets_dir()
+{
+	$assets_dir = get_stylesheet_directory_uri();
+	$assets_dir .= '/assets';
+	return $assets_dir;
 }
 
 ?>

@@ -1,9 +1,13 @@
+// main: ../less/main.less
+/*  S T A R T  O F  layout.less  */
+
+
 html,
 body {
 	background: #fff;
 	.font-default;
-	min-width: 1200px;
-	color: #fff;
+	// min-width: 1200px;
+	// color: #fff;
 	// height: 100%;
 }
 
@@ -11,14 +15,15 @@ body {
 	overflow: hidden;
 }
 
-@media screen and (max-width: 1200px){
-	body {
-		overflow-x: visible !important;
-	}
-}
+// @media screen and (max-width: 1200px){
+// 	body {
+// 		overflow-x: visible !important;
+// 	}
+// }
 
 .row() {
 	width: 1180px;
+	min-width: 320px;
 	margin: 0 auto;
 }
 
@@ -35,7 +40,7 @@ body {
 
 .fullscreen() {
 	background-size: cover;
-  background-repeat: no-repeat;
+	background-repeat: no-repeat;
 }
 
 .button {
@@ -193,17 +198,17 @@ div.wpcf7 img.ajax-loader {
 	}
 }
 
-@keyframes spin { 
-  100% { 
-    transform: rotate(360deg); 
-  } 
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 // .wpcf7-not-valid ~ .control-label
 
 .wpcf7-not-valid-tip {
 	font: 13px/13px 'FuturaDemiC-Regular', sans-serif !important;
-	color: fadeout(@red, 20%)  !important;
+	// color: fadeout(@red, 20%)  !important;
 	padding-left: 8px;
 	padding-top: 3px;
 }
@@ -236,11 +241,14 @@ div.wpcf7 img.ajax-loader {
 	}
 }
 
-.input ::-webkit-input-placeholder {color: fadeout(@blue, 20%);}
-.input ::-moz-placeholder          {color: fadeout(@blue, 20%);}/* Firefox 19+ */
-.input :-moz-placeholder           {color: fadeout(@blue, 20%);}/* Firefox 18- */
-.input :-ms-input-placeholder      {color: fadeout(@blue, 20%);}
-textarea::-webkit-input-placeholder {color: fadeout(@blue, 20%);}
-textarea::-moz-placeholder          {color: fadeout(@blue, 20%);}/* Firefox 19+ */
-textarea:-moz-placeholder           {color: fadeout(@blue, 20%);}/* Firefox 18- */
-textarea:-ms-input-placeholder      {color: fadeout(@blue, 20%);}
+// .input ::-webkit-input-placeholder {color: fadeout(@blue, 20%);}
+// .input ::-moz-placeholder          {color: fadeout(@blue, 20%);}/* Firefox 19+ */
+// .input :-moz-placeholder           {color: fadeout(@blue, 20%);}/* Firefox 18- */
+// .input :-ms-input-placeholder      {color: fadeout(@blue, 20%);}
+// textarea::-webkit-input-placeholder {color: fadeout(@blue, 20%);}
+// textarea::-moz-placeholder          {color: fadeout(@blue, 20%);}/* Firefox 19+ */
+// textarea:-moz-placeholder           {color: fadeout(@blue, 20%);}/* Firefox 18- */
+// textarea:-ms-input-placeholder      {color: fadeout(@blue, 20%);}
+
+
+/*  E N D  O F  layout.less  */

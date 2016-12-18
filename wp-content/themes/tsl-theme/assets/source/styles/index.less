@@ -1,3 +1,6 @@
+// main: ../less/main.less
+/*  S T A R T  O F  index.less  */
+
 .navigation {
   position: fixed;
   right: 25px;
@@ -149,7 +152,8 @@
 }
 
 .blocks {
-  width: 1020px;
+  // width: 1020px;
+  min-width: 320px;
   margin-left: auto;
   margin-right: auto;
   font-size: 0;
@@ -159,10 +163,10 @@
     display: inline-block;
   }
   &--long {
-    width: 1160px;
+    // width: 1160px;
   }
   &--short {
-    width: 980px;
+    // width: 980px;
     text-align: justify;
     & .blocks__item {
       width: 33%;
@@ -420,10 +424,6 @@
   }
 }
 
-.clients {
-  background-color: @blue;
-}
-
 .slider {
   overflow: hidden;
   position: relative;
@@ -432,9 +432,9 @@
   &__container {
     position: relative;
   }
-  & .slide {
-    float: left;
-  }
+  // & .slide {
+  //   float: left;
+  // }
   &__nav {
     position: absolute;
     content: '';
@@ -535,7 +535,7 @@
   padding: 40px;
   margin-left: 10px;
   width: 490px;
-  background-color: fadeout(@blue, 10%);
+  // background-color: fadeout(@blue, 10%);
   &__item {
     font: 21px/21px 'FuturaDemiC-Regular', sans-serif;
     letter-spacing: -1px;
@@ -628,3 +628,6 @@
     display: inline-block;
   }
 }
+
+
+/*  E N D  O F  index.less  */

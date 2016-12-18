@@ -42,98 +42,48 @@
         <div class="middle">
             <div id="fullpage">
                 <!-- Интро -->
-                <div id="section1" class="section section_intro">
+                <?php if ($image = get_field('index_fs_background')) { ?>
+                <div id="section1" class="section section_intro" style="background-image: url('<?php echo $image['url']; ?>')">
+                <?php } ?>
                     <div class="section__inner">
                         <?php if ($image = get_field('index_fs_logo')) { ?>
                             <img src="<?php echo $image['url']; ?>" alt="Solution-P logotype" class="logo__img">
                         <?php } ?>
                         <p class="section__desc">
-                            Компания Solution P создана коллективом профи, имеющих многолетний опыт в сфере рекламных и
-                            маркетинговых услуг. Объединив специалистов и профессионалов рекламного дела, мы создали
-                            удобную для клиента среду работы, позволяющую выработать наилучшее решение в реализации
-                            проектов практически любой сложности и масштаба.
+                            <?php the_field('index_fs_text'); ?>
                         </p>
                         <a href="#services" class="next-page-link">Наши услуги</a>
                     </div>
                 </div>
                 <!-- Услуги -->
-                <div id="section2" class="section section_services">
+                <?php if ($image = get_field('index_service_background')) { ?>
+                    <div id="section2" class="section section_services" style="background-image: url('<?php echo $image['url']; ?>')">
+                <?php } ?>
                     <div class="section__inner">
-                        <h2 class="section__header">Наши услуги</h2>
+                        <h2 class="section__header"><? the_field('index_service_title'); ?></h2>
                         <p class="section__desc">
-                            Наши клиенты – это малый, средний и крупный бизнес, а также государственные компании и
-                            организации. Креативная составляющая вашей компании – наша ответственность.</p>
+                            <? the_field('index_service_text'); ?>
+                        </p>
                         <div class="services clearfix">
-                            <div class="service__block">
-                                <a href="#services/production" onclick="PopUpShow_production()"
-                                   class="service service_link">
-                                    <div class="service__img">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.1 51.83"
-                                             class="service__img_production icon">
-                                            <path
-                                                d="M15.9,42.74a6.6,6.6,0,1,1,6.7-6.6A6.65,6.65,0,0,1,15.9,42.74ZM27,39.18a25.74,25.74,0,0,1,3.3-.37,1.54,1.54,0,0,0,1.5-1.53V35a1.66,1.66,0,0,0-1.5-1.62A27.16,27.16,0,0,1,27,32.94l-0.11,0a1.34,1.34,0,0,1-.4-0.62,5,5,0,0,1-.3-1.72l0.26-.36a25.19,25.19,0,0,1,2-2.52,1.52,1.52,0,0,0,0-2.13L26.86,24a1.57,1.57,0,0,0-2.16,0A13.94,13.94,0,0,1,22,25.77l-0.4.22a3.79,3.79,0,0,1-1.44-.19A7,7,0,0,1,19,25.23l0-.08a28,28,0,0,1-.39-3.7,1.54,1.54,0,0,0-1.53-1.5h-2.3a1.54,1.54,0,0,0-1.53,1.5,15.61,15.61,0,0,1-.59,3.66l0,0.12a1,1,0,0,1-.5.35,8,8,0,0,1-1.77.28l-0.46-.25a13.87,13.87,0,0,1-2.68-1.82,1.58,1.58,0,0,0-2.16,0L3.46,25.41a1.52,1.52,0,0,0,0,2.13,25.31,25.31,0,0,1,2,2.53L5.7,30.39a2.06,2.06,0,0,1-.12,1.2,7.35,7.35,0,0,1-.73,1.32l-0.14,0a14.13,14.13,0,0,1-3.21.58A1.54,1.54,0,0,0,0,35.06v2.23a1.54,1.54,0,0,0,1.5,1.53,25.81,25.81,0,0,1,3.25.38h0.1a1.21,1.21,0,0,1,.41.64,5.88,5.88,0,0,1,.35,1.85l-0.27.38a24.71,24.71,0,0,1-2,2.52,1.52,1.52,0,0,0,0,2.13L5,48.31a1.57,1.57,0,0,0,2.16,0,14,14,0,0,1,2.68-1.82l0.45-.25a4.86,4.86,0,0,1,1.38.14,3.22,3.22,0,0,1,1,.6l0.05,0.18a13.48,13.48,0,0,1,.59,3.14,1.55,1.55,0,0,0,1.53,1.5H17a1.54,1.54,0,0,0,1.53-1.5A24.47,24.47,0,0,1,19,47.15L19,47a1.06,1.06,0,0,1,.6-0.39,9,9,0,0,1,2-.38L22,46.48a13.94,13.94,0,0,1,2.68,1.83,1.57,1.57,0,0,0,2.16,0l1.61-1.59a1.52,1.52,0,0,0,0-2.13,25.19,25.19,0,0,1-2-2.52l-0.27-.37a2.45,2.45,0,0,1,.11-1.27,8,8,0,0,1,.58-1.2S26.9,39.19,27,39.18Z"
-                                                fill-rule="evenodd"/>
-                                            <path
-                                                d="M15.9,42.74a6.6,6.6,0,1,1,6.7-6.6A6.65,6.65,0,0,1,15.9,42.74ZM27,39.18a25.74,25.74,0,0,1,3.3-.37,1.54,1.54,0,0,0,1.5-1.53V35a1.66,1.66,0,0,0-1.5-1.62A27.16,27.16,0,0,1,27,32.94l-0.11,0a1.34,1.34,0,0,1-.4-0.62,5,5,0,0,1-.3-1.72l0.26-.36a25.19,25.19,0,0,1,2-2.52,1.52,1.52,0,0,0,0-2.13L26.86,24a1.57,1.57,0,0,0-2.16,0A13.94,13.94,0,0,1,22,25.77l-0.4.22a3.79,3.79,0,0,1-1.44-.19A7,7,0,0,1,19,25.23l0-.08a28,28,0,0,1-.39-3.7,1.54,1.54,0,0,0-1.53-1.5h-2.3a1.54,1.54,0,0,0-1.53,1.5,15.61,15.61,0,0,1-.59,3.66l0,0.12a1,1,0,0,1-.5.35,8,8,0,0,1-1.77.28l-0.46-.25a13.87,13.87,0,0,1-2.68-1.82,1.58,1.58,0,0,0-2.16,0L3.46,25.41a1.52,1.52,0,0,0,0,2.13,25.31,25.31,0,0,1,2,2.53L5.7,30.39a2.06,2.06,0,0,1-.12,1.2,7.35,7.35,0,0,1-.73,1.32l-0.14,0a14.13,14.13,0,0,1-3.21.58A1.54,1.54,0,0,0,0,35.06v2.23a1.54,1.54,0,0,0,1.5,1.53,25.81,25.81,0,0,1,3.25.38h0.1a1.21,1.21,0,0,1,.41.64,5.88,5.88,0,0,1,.35,1.85l-0.27.38a24.71,24.71,0,0,1-2,2.52,1.52,1.52,0,0,0,0,2.13L5,48.31a1.57,1.57,0,0,0,2.16,0,14,14,0,0,1,2.68-1.82l0.45-.25a4.86,4.86,0,0,1,1.38.14,3.22,3.22,0,0,1,1,.6l0.05,0.18a13.48,13.48,0,0,1,.59,3.14,1.55,1.55,0,0,0,1.53,1.5H17a1.54,1.54,0,0,0,1.53-1.5A24.47,24.47,0,0,1,19,47.15L19,47a1.06,1.06,0,0,1,.6-0.39,9,9,0,0,1,2-.38L22,46.48a13.94,13.94,0,0,1,2.68,1.83,1.57,1.57,0,0,0,2.16,0l1.61-1.59a1.52,1.52,0,0,0,0-2.13,25.19,25.19,0,0,1-2-2.52l-0.27-.37a2.45,2.45,0,0,1,.11-1.27,8,8,0,0,1,.58-1.2S26.9,39.19,27,39.18Z"
-                                                fill-rule="evenodd"/>
-                                            <path
-                                                d="M31.19,18.54a5.37,5.37,0,1,1,5.44-5.37A5.41,5.41,0,0,1,31.19,18.54Zm9-2.89a20.23,20.23,0,0,1,2.4-.3,1.54,1.54,0,0,0,1.5-1.53V12.56a1.66,1.66,0,0,0-1.5-1.62,18.75,18.75,0,0,1-2.37-.37l-0.09,0A1.12,1.12,0,0,1,39.82,10a4.1,4.1,0,0,1-.24-1.4l0.21-.29A18.62,18.62,0,0,1,41.23,6.5a1.52,1.52,0,0,0,0-2.13l-0.91-.9a1.57,1.57,0,0,0-2.16,0,10.49,10.49,0,0,1-2,1.29l-0.33.18a3.19,3.19,0,0,1-1.16-.15,6.08,6.08,0,0,1-1-.45V4.23A21,21,0,0,1,33.4,1.5,1.54,1.54,0,0,0,31.87,0H30.56A1.54,1.54,0,0,0,29,1.5a11.52,11.52,0,0,1-.48,2.69l0,0.1a0.8,0.8,0,0,1-.4.29,6.52,6.52,0,0,1-1.43.23l-0.37-.2a10.25,10.25,0,0,1-2-1.29,1.57,1.57,0,0,0-2.16,0l-0.91.9a1.52,1.52,0,0,0,0,2.13A19.09,19.09,0,0,1,22.7,8.22l0.19,0.26a1.66,1.66,0,0,1-.1,1,5.71,5.71,0,0,1-.59,1.07l-0.11,0a10.46,10.46,0,0,1-2.33.46,1.54,1.54,0,0,0-1.5,1.53v1.25a1.54,1.54,0,0,0,1.5,1.53,19.26,19.26,0,0,1,2.37.3h0.09a1.1,1.1,0,0,1,.33.53,4.65,4.65,0,0,1,.28,1.49L22.6,18a20.46,20.46,0,0,1-1.45,1.85,1.52,1.52,0,0,0,0,2.13l0.91,0.9a1.57,1.57,0,0,0,2.16,0,10.49,10.49,0,0,1,2-1.29l0.37-.2a3.89,3.89,0,0,1,1.12.12,2.59,2.59,0,0,1,.77.49l0,0.14A10.09,10.09,0,0,1,29,24.43a1.55,1.55,0,0,0,1.53,1.5h1.32a1.54,1.54,0,0,0,1.53-1.5,18.74,18.74,0,0,1,.31-2.31l0-.1a1,1,0,0,1,.5-0.32,7.13,7.13,0,0,1,1.62-.31l0.36,0.19a10.42,10.42,0,0,1,2,1.29,1.57,1.57,0,0,0,2.16,0l0.91-.9a1.52,1.52,0,0,0,0-2.13A19.5,19.5,0,0,1,39.79,18l-0.22-.31a2,2,0,0,1,.09-1,6.94,6.94,0,0,1,.47-1H40.2Z"
-                                                fill-rule="evenodd"/>
-                                            <path
-                                                d="M31.19,18.54a5.37,5.37,0,1,1,5.44-5.37A5.41,5.41,0,0,1,31.19,18.54Zm9-2.89a20.23,20.23,0,0,1,2.4-.3,1.54,1.54,0,0,0,1.5-1.53V12.56a1.66,1.66,0,0,0-1.5-1.62,18.75,18.75,0,0,1-2.37-.37l-0.09,0A1.12,1.12,0,0,1,39.82,10a4.1,4.1,0,0,1-.24-1.4l0.21-.29A18.62,18.62,0,0,1,41.23,6.5a1.52,1.52,0,0,0,0-2.13l-0.91-.9a1.57,1.57,0,0,0-2.16,0,10.49,10.49,0,0,1-2,1.29l-0.33.18a3.19,3.19,0,0,1-1.16-.15,6.08,6.08,0,0,1-1-.45V4.23A21,21,0,0,1,33.4,1.5,1.54,1.54,0,0,0,31.87,0H30.56A1.54,1.54,0,0,0,29,1.5a11.52,11.52,0,0,1-.48,2.69l0,0.1a0.8,0.8,0,0,1-.4.29,6.52,6.52,0,0,1-1.43.23l-0.37-.2a10.25,10.25,0,0,1-2-1.29,1.57,1.57,0,0,0-2.16,0l-0.91.9a1.52,1.52,0,0,0,0,2.13A19.09,19.09,0,0,1,22.7,8.22l0.19,0.26a1.66,1.66,0,0,1-.1,1,5.71,5.71,0,0,1-.59,1.07l-0.11,0a10.46,10.46,0,0,1-2.33.46,1.54,1.54,0,0,0-1.5,1.53v1.25a1.54,1.54,0,0,0,1.5,1.53,19.26,19.26,0,0,1,2.37.3h0.09a1.1,1.1,0,0,1,.33.53,4.65,4.65,0,0,1,.28,1.49L22.6,18a20.46,20.46,0,0,1-1.45,1.85,1.52,1.52,0,0,0,0,2.13l0.91,0.9a1.57,1.57,0,0,0,2.16,0,10.49,10.49,0,0,1,2-1.29l0.37-.2a3.89,3.89,0,0,1,1.12.12,2.59,2.59,0,0,1,.77.49l0,0.14A10.09,10.09,0,0,1,29,24.43a1.55,1.55,0,0,0,1.53,1.5h1.32a1.54,1.54,0,0,0,1.53-1.5,18.74,18.74,0,0,1,.31-2.31l0-.1a1,1,0,0,1,.5-0.32,7.13,7.13,0,0,1,1.62-.31l0.36,0.19a10.42,10.42,0,0,1,2,1.29,1.57,1.57,0,0,0,2.16,0l0.91-.9a1.52,1.52,0,0,0,0-2.13A19.5,19.5,0,0,1,39.79,18l-0.22-.31a2,2,0,0,1,.09-1,6.94,6.94,0,0,1,.47-1H40.2Z"
-                                                fill-rule="evenodd"/>
-                                        </svg>
+                            <?php
+                            if (have_rows('index_service_slide')) {
+                                while (have_rows('index_service_slide')) {
+                                    the_row();
+                                    ?>
+                                    <div class="service__block">
+                                        <a href="#services/production" onclick="PopUpShow_production()"
+                                           class="service service_link">
+                                            <?php if ($image = get_sub_field('index_service_slide_ico')) { ?>
+                                                <div class="service__img_white" style="background-image: url('<?php echo $image['url']; ?>')"></div>
+                                            <?php } ?>
+                                            <?php if ($image = get_sub_field('index_service_slide_ico_h')) { ?>
+                                                <div class="service__img_color" style="background-image: url('<?php echo $image['url']; ?>')"></div>
+                                            <?php } ?>
+                                            <h3 class="service__title"><? the_sub_field('index_service_slide_title'); ?></h3>
+                                        </a>
                                     </div>
-                                    <h3 class="service__title">Production</h3>
-                                </a>
-                            </div>
-                            <div class="service__block">
-                                <a href="#services/event" onclick="PopUpShow_event()" class="service service_link">
-                                    <div class="service__img">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 41.79"
-                                             class="service__img_event icon">
-                                            <path
-                                                d="M37.57,33.24a0.56,0.56,0,0,1-.37.52,0.81,0.81,0,0,1-.6-0.07,0.07,0.07,0,0,0-.08-0.07l-0.3-.3c-0.23-.23-0.6-0.52-1.12-1A38.85,38.85,0,0,0,31,29.42,25.82,25.82,0,0,0,28,27.84v-16A25.82,25.82,0,0,0,31,10.22,38.85,38.85,0,0,0,35.1,7.3c0.45-.37.82-0.75,1.13-1l0.38-.37a0.58,0.58,0,0,1,.6-0.15,0.56,0.56,0,0,1,.38.52V33.24Zm-19.13-8.1H8a5.4,5.4,0,0,1,0-10.8H18.38a25.49,25.49,0,0,0,7.05-1.5v13.8A30.75,30.75,0,0,0,18.45,25.14Zm4.13,11.18L19.2,38.94l-7.95-11.1H16.5ZM38.25,3.39a3.27,3.27,0,0,0-3.52.75l-0.23.3a12.85,12.85,0,0,1-1,.9A33.67,33.67,0,0,1,29.7,8a25.71,25.71,0,0,1-11.25,3.82H8a8,8,0,1,0,0,16L17.4,41a2,2,0,0,0,1.35.82h0.3a2,2,0,0,0,1.27-.45L24.6,38A2,2,0,0,0,25,35.19L19.8,27.92a25.66,25.66,0,0,1,9.82,3.68,33.3,33.3,0,0,1,3.82,2.7c0.45,0.38.75,0.68,1,.82l0.3,0.23a3.25,3.25,0,0,0,2.25,1,3.05,3.05,0,0,0,1.2-.23,3.17,3.17,0,0,0,1.95-2.93V6.39A3.1,3.1,0,0,0,38.25,3.39Z"/>
-                                            <path
-                                                d="M63.38,18.47H52.13a1.35,1.35,0,0,0,0,2.7H63.38a1.35,1.35,0,0,0,1.35-1.35A1.3,1.3,0,0,0,63.38,18.47Z"/>
-                                            <path
-                                                d="M48.82,11.57a1.37,1.37,0,0,0,.9-0.37l8.92-8.93a1.31,1.31,0,0,0,0-1.87,1.32,1.32,0,0,0-1.87,0L47.93,9.32a1.31,1.31,0,0,0,0,1.88A1.36,1.36,0,0,0,48.82,11.57Z"/>
-                                            <path
-                                                d="M49.73,28.37a1.33,1.33,0,0,0-1.87,1.88l8.92,8.93a1.39,1.39,0,0,0,.9.38,1.37,1.37,0,0,0,.9-0.37,1.31,1.31,0,0,0,0-1.87Z"/>
-                                        </svg>
-                                    </div>
-                                    <h3 class="service__title">Event</h3>
-                                </a>
-                            </div>
-                            <div class="service__block">
-                                <a href="#services/creative" onclick="PopUpShow_creative()"
-                                   class="service service_link">
-                                    <div class="service__img">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 49.44"
-                                             class="service__img_creative icon">
-                                            <path
-                                                d="M1.31,17.83s0,0.08,0,.13a11.16,11.16,0,0,0,11.8,10.43,8.16,8.16,0,0,0,7.64-8.65,6.07,6.07,0,0,0-6.44-5.69A4.63,4.63,0,0,0,10,18.95a1.22,1.22,0,0,0,2.43-.15,2.19,2.19,0,0,1,2-2.32,3.64,3.64,0,0,1,3.86,3.41A5.72,5.72,0,0,1,13,26a8.71,8.71,0,0,1-9.21-8,1.15,1.15,0,0,0,0-.27c0-6.34,3.53-10.22,8-12.46C12.17,5,12.59,4.84,13,4.7l-0.72.22a28.18,28.18,0,0,1,11.5-2.43,26.84,26.84,0,0,1,16.1,5.24L41.69,6A29.25,29.25,0,0,0,23.82,0C17.48,0,6.5,2.44,2.64,10.87a0.63,0.63,0,0,0-.06.12,14.85,14.85,0,0,0-1.27,6.49c0,0.06,0,.12,0,0.19A1.18,1.18,0,0,0,1.31,17.83Z"/>
-                                            <path
-                                                d="M50.27,8.4L27.64,31a4.63,4.63,0,0,0-.9-1.41,8.19,8.19,0,0,0-1.61-1.25L43,10.49l1.76-1.76,2.91-2.91a2.26,2.26,0,0,1,1.58-.68,1.7,1.7,0,0,1,1.21.48A2,2,0,0,1,50.27,8.4Zm-31,24.26c-1.49,5.67-12.14,7.64-14,7.64A0.23,0.23,0,0,1,5,40.11c0-.21.18-0.28,0.53-0.41C9.44,38.28,14,34.3,16,32.4c1.2-1.13,2.13-1.5,2.86-1.15A1.6,1.6,0,0,1,19.3,32.66ZM51.76,4.31a3.51,3.51,0,0,0-2.51-1,4.1,4.1,0,0,0-2.87,1.22L43.46,7.43h0L41.69,9.18h0L23.32,27.57l-0.49-.14a7.35,7.35,0,0,0-1.57-.18c-1.72,0-3.91.89-6.4,3.76-3.43,4-9.47,7.36-12.54,8.78C0.37,40.7,0,40.88,0,41.52a0.79,0.79,0,0,0,.55.71,47,47,0,0,0,14.94,3c8.19,0,11.09-4,12.08-6.46A10.87,10.87,0,0,0,28.22,33h0l0.18-.16L46.28,15h0l1.82-1.83h0L51.55,9.7A3.81,3.81,0,0,0,51.76,4.31Z"/>
-                                            <path
-                                                d="M47.34,17.16a19.91,19.91,0,0,1,1.5,7.56c0,12.26-11.22,22.23-25,22.23a28.27,28.27,0,0,1-3.94-.28,1.25,1.25,0,0,0-.35,2.47,31,31,0,0,0,4.29.3c15.17,0,27.51-11.09,27.51-24.72a22.38,22.38,0,0,0-2.11-9.44Z"/>
-                                        </svg>
-                                    </div>
-                                    <h3 class="service__title">Creative</h3>
-                                </a>
-                            </div>
-                            <div class="service__block">
-                                <a href="#services/digital" onclick="PopUpShow_digital()" class="service service_link">
-                                    <div class="service__img">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58.39 62.56"
-                                             class="service__img_digital icon">
-                                            <path
-                                                d="M24.73,54.35a1.31,1.31,0,0,1-1.3,1.3H4a1.31,1.31,0,0,1-1.3-1.3V23.66A1.31,1.31,0,0,1,4,22.36H23.43a1.31,1.31,0,0,1,1.3,1.3V54.35h0Zm-11,7.15a2.36,2.36,0,1,1,2.35-2.36A2.36,2.36,0,0,1,13.71,61.5Zm8.64-46H5.07A5.08,5.08,0,0,0,0,20.53V57.48a5.08,5.08,0,0,0,5.07,5.07H22.35a5.08,5.08,0,0,0,5.07-5.07v-37A5.08,5.08,0,0,0,22.35,15.47Zm13.86,45.3a2.27,2.27,0,1,1,2.27-2.27A2.28,2.28,0,0,1,36.22,60.76ZM58.38,5a5,5,0,0,0-5-5H19.08a5,5,0,0,0-5,5v7.72h3.23V8.41A1.61,1.61,0,0,1,18.88,6.8H53.55a1.61,1.61,0,0,1,1.61,1.61V53.12a1.61,1.61,0,0,1-1.61,1.61H30.16v2.52a7.48,7.48,0,0,1-2.22,5.32H53.35a5,5,0,0,0,5-5V5Z"/>
-                                        </svg>
-                                    </div>
-                                    <h3 class="service__title">Digital</h3>
-                                </a>
-                            </div>
+                                <?php } ?>
+                            <?php } ?>
                         </div>
                         <span class="btn btn_white popup_open" data-popup-id='3'>Подробнее о production</span>
                     </div>
@@ -255,7 +205,7 @@
             <div class="popup__inner">
                 <div class="popup__menu-item clearfix">
                     <a href="#intro" class="logo_header">
-                        <img src="./img/logo.png" alt="Solution-P logotype" class="logo__img_header"></a>
+                        <img src="<?= get_assets_dir(); ?>/img/logo.png" alt="Solution-P logotype" class="logo__img_header"></a>
                 </div>
                 <div class="popup__menu-item">
                     <a href="#services" class="menu__link popup_close">Наши услуги</a>
@@ -296,111 +246,19 @@
                     </div>
                 </h3>
                 <div class="blocks">
-                    <div class="popup-block popup-block_hidden">
-                        <div role="form" class="wpcf7" id="wpcf7-f123-o1" lang="ru-RU" dir="ltr">
-                            <div class="screen-reader-response"></div>
-                            <form action="/#wpcf7-f123-o1" method="post" class="wpcf7-form" novalidate="novalidate">
-                                <div style="display: none;">
-                                    <input type="hidden" name="_wpcf7" value="123"/>
-                                    <input type="hidden" name="_wpcf7_version" value="4.2.2"/>
-                                    <input type="hidden" name="_wpcf7_locale" value="ru_RU"/>
-                                    <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f123-o1"/>
-                                    <input type="hidden" name="_wpnonce" value="df2b8dd2cc"/>
-                                </div>
-                                <div class="input">
-								<span class="wpcf7-form-control-wrap your-name">
-									<input type="text" name="your-name" value="" size="40"
-                                           class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                           aria-required="true" aria-invalid="false" placeholder="Ваше имя*"/>
-								</span>
-                                </div>
-                                <div class="input">
-								<span class="wpcf7-form-control-wrap phone">
-									<input type="tel" name="phone" value="" size="40"
-                                           class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel"
-                                           aria-required="true" aria-invalid="false" placeholder="Телефон*"/>
-								</span>
-                                </div>
-                                <p>
-								<span class="wpcf7-form-control-wrap dropdown">
-									<select name="dropdown" class="wpcf7-form-control wpcf7-select"
-                                            aria-invalid="false">
-										<option value="с 09:00-10:00">с 09:00-10:00</option>
-										<option value="с 10:00-11:00">с 10:00-11:00</option>
-										<option value="с 11:00-12:00">с 11:00-12:00</option>
-										<option value="с 12:00-13:00">с 12:00-13:00</option>
-										<option value="с 13:00-14:00">с 13:00-14:00</option>
-										<option value="с 14:00-15:00">с 14:00-15:00</option>
-										<option value="с 15:00-16:00">с 15:00-16:00</option>
-										<option value="с 16:00-17:00">с 16:00-17:00</option>
-										<option value="с 17:00-18:00">с 17:00-18:00</option>
-										<option value="с 18:00-19:00">с 18:00-19:00</option>
-									</select>
-								</span><br/>
-                                    <input type="submit" value="Отправить"
-                                           class="wpcf7-form-control wpcf7-submit button button--blue popup-block__btn"/>
-                                </p>
-                                <div class="wpcf7-response-output wpcf7-display-none"></div>
-                            </form>
-                        </div>
-                    </div>
                     <div class="popup-block">
-                        <div role="form" class="wpcf7" id="wpcf7-f124-o2" lang="ru-RU" dir="ltr">
-                            <div class="screen-reader-response"></div>
-                            <form action="/#wpcf7-f124-o2" method="post" class="wpcf7-form" novalidate="novalidate">
-                                <div style="display: none;">
-                                    <input type="hidden" name="_wpcf7" value="124"/>
-                                    <input type="hidden" name="_wpcf7_version" value="4.2.2"/>
-                                    <input type="hidden" name="_wpcf7_locale" value="ru_RU"/>
-                                    <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f124-o2"/>
-                                    <input type="hidden" name="_wpnonce" value="6bfe26a707"/>
-                                </div>
-                                <div class="input">
-                                    <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name"
-                                                                                           value="" size="40"
-                                                                                           class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                                                                           aria-required="true"
-                                                                                           aria-invalid="false"
-                                                                                           placeholder="Ваше имя*"/></span>
-                                </div>
-                                <div class="input">
-								<span class="wpcf7-form-control-wrap phone">
-									<input type="tel" name="phone" value="" size="40"
-                                           class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel"
-                                           aria-required="true" aria-invalid="false" placeholder="Телефон*"/>
-								</span>
-                                </div>
-                                <div class="input">
-								<span class="wpcf7-form-control-wrap email">
-									<input type="email" name="email" value="" size="40"
-                                           class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
-                                           aria-required="true" aria-invalid="false" placeholder="E-mail*"/>
-								</span>
-                                </div>
-                                <div class="textarea">
-								<span class="wpcf7-form-control-wrap comment">
-									<textarea name="comment" cols="40" rows="4"
-                                              class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required"
-                                              aria-required="true" aria-invalid="false"
-                                              placeholder="Сообщение"></textarea>
-								</span>
-                                </div>
-                                <p>
-                                    <input type="submit" value="Отправить"
-                                           class="wpcf7-form-control wpcf7-submit button button--blue popup-block__btn"/>
-                                </p>
-                                <div class="wpcf7-response-output wpcf7-display-none"></div>
-                            </form>
-                        </div>
+                        <?php echo do_shortcode( '[contact-form-7 id="123" title="Заказать звонок"]' ); ?>
+                    </div>
+                    <div class="popup-block popup-block--hidden">
+                        <?php echo do_shortcode( '[contact-form-7 id="124" title="Оставить сообщение"]' ); ?>
                     </div>
                 </div>
                 <div class="popup__contacts contacts">
-                    <div class="contacts__item contacts__item_phone contacts__item_phone-popup">
-                        +7 495 540-47-97
+                    <div class="contacts__item contacts__item--phone contacts__item--phone-popup">
+                        <? the_field('phone', 'option'); ?>
                     </div>
-                    <a href="mailto:info@solutionp.ru"
-                       class="contacts__item contacts__item_mail contacts__item_mail-popup">
-                        info@solutionp.ru
+                    <a href="mailto:<? the_field('mail', 'option'); ?>" class="contacts__item contacts__item--mail contacts__item--mail-popup">
+                        <? the_field('mail', 'option'); ?>
                     </a>
                 </div>
                 <div class="popup__social social">
@@ -409,119 +267,7 @@
                     <a href="#" class="social__item social__item_tw-p"></a>
                 </div>
                 <span class="btn btn_close popup_close"></span>
-                <!-- <form id="form_contact" method="post" action="#" class="contact-form">
-                <input type="text" placeholder="Ваше имя*" required id="first-name" name="first-name" class="form_input"/>
-                <input type="tel" placeholder="Телефон*" required id="phone" name="phone" class="form_input"/>
-                <input type="email" placeholder="Email*" required id="email" name="email" class="form_input"/>
-                <textarea id="message" name="message" form="form_contact" placeholder="Сообщение" class="form_input"></textarea>
-                <input type="text" placeholder="Сообщение" required id="message" name="message" class="form_input"/>
-                <input type="submit" value="Отправить" class="form_input btn btn_blue"/>
-                <span class="btn btn_close popup_close"></span>
-            </form> -->
             </div>
-            <!-- <section class="popup">
-                <div class="popup__row popup__row--center">
-                    <div class="popup__close close-popup"></div>
-                    <h2>
-                        <div class="switch-title switch-title--left">Заказать звонок</div>
-                        <div class="popup__switcher switch"><span class="switch__item"></span></div>
-                        <div class="switch-title switch-title--right switch-title--disable">Оставить сообщение</div>
-                    </h2>
-                     <div class="blocks">
-                        <div class="popup-block">
-                            <div role="form" class="wpcf7" id="wpcf7-f123-o1" lang="ru-RU" dir="ltr">
-                                <div class="screen-reader-response"></div>
-                                <form action="/#wpcf7-f123-o1" method="post" class="wpcf7-form" novalidate="novalidate">
-                                    <div style="display: none;">
-                                        <input type="hidden" name="_wpcf7" value="123" />
-                                        <input type="hidden" name="_wpcf7_version" value="4.2.2" />
-                                        <input type="hidden" name="_wpcf7_locale" value="ru_RU" />
-                                        <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f123-o1" />
-                                        <input type="hidden" name="_wpnonce" value="df2b8dd2cc" />
-                                    </div>
-                                    <div class="input">
-                                        <span class="wpcf7-form-control-wrap your-name">
-                                            <input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Ваше имя*" />
-                                        </span>
-                                    </div>
-                                    <div class="input">
-                                        <span class="wpcf7-form-control-wrap phone">
-                                            <input type="tel" name="phone" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="Телефон*" />
-                                        </span>
-                                    </div>
-                                    <p>
-                                        <span class="wpcf7-form-control-wrap dropdown">
-                                            <select name="dropdown" class="wpcf7-form-control wpcf7-select" aria-invalid="false">
-                                                <option value="с 09:00-10:00">с 09:00-10:00</option>
-                                                <option value="с 10:00-11:00">с 10:00-11:00</option>
-                                                <option value="с 11:00-12:00">с 11:00-12:00</option>
-                                                <option value="с 12:00-13:00">с 12:00-13:00</option>
-                                                <option value="с 13:00-14:00">с 13:00-14:00</option>
-                                                <option value="с 14:00-15:00">с 14:00-15:00</option>
-                                                <option value="с 15:00-16:00">с 15:00-16:00</option>
-                                                <option value="с 16:00-17:00">с 16:00-17:00</option>
-                                                <option value="с 17:00-18:00">с 17:00-18:00</option>
-                                                <option value="с 18:00-19:00">с 18:00-19:00</option>
-                                            </select>
-                                        </span><br />
-                                        <input type="submit" value="Отправить" class="wpcf7-form-control wpcf7-submit button button--blue popup-block__btn" />
-                                    </p>
-                                    <div class="wpcf7-response-output wpcf7-display-none"></div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="popup-block popup-block--hidden">
-                            <div role="form" class="wpcf7" id="wpcf7-f124-o2" lang="ru-RU" dir="ltr">
-                                <div class="screen-reader-response"></div>
-                                <form action="/#wpcf7-f124-o2" method="post" class="wpcf7-form" novalidate="novalidate">
-                                    <div style="display: none;">
-                                        <input type="hidden" name="_wpcf7" value="124" />
-                                        <input type="hidden" name="_wpcf7_version" value="4.2.2" />
-                                        <input type="hidden" name="_wpcf7_locale" value="ru_RU" />
-                                        <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f124-o2" />
-                                        <input type="hidden" name="_wpnonce" value="6bfe26a707" />
-                                    </div>
-                                    <div class="input">
-                                        <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Ваше имя*" /></span>
-                                    </div>
-                                    <div class="input">
-                                        <span class="wpcf7-form-control-wrap phone">
-                                            <input type="tel" name="phone" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="Телефон*" />
-                                        </span>
-                                    </div>
-                                    <div class="input">
-                                        <span class="wpcf7-form-control-wrap email">
-                                            <input type="email" name="email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="E-mail*" />
-                                        </span>
-                                    </div>
-                                    <div class="textarea">
-                                        <span class="wpcf7-form-control-wrap comment">
-                                            <textarea name="comment" cols="40" rows="4" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Сообщение"></textarea>
-                                        </span>
-                                    </div>
-                                    <p>
-                                        <input type="submit" value="Отправить" class="wpcf7-form-control wpcf7-submit button button--blue popup-block__btn" />
-                                    </p>
-                                    <div class="wpcf7-response-output wpcf7-display-none"></div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="popup__contacts contacts">
-                            <div class="contacts__item contacts__item--phone contacts__item--phone-popup">
-                                +7 495 540-47-97
-                            </div>
-                            <a href="mailto:info@solutionp.ru" class="contacts__item contacts__item--mail contacts__item--mail-popup">
-                                info@solutionp.ru
-                            </a>
-                        </div>
-                        <div class="popup__social social">
-                            <a href="#" class="social__item social__item--fb-p"></a>
-                            <a href="#" class="social__item social__item--insta-p"></a>
-                            <a href="#" class="social__item social__item--tw-p"></a>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
         </div>
         <!-- Попап Услуги -->
         <div data-id="3" class="popup popup3 popup_services">
@@ -571,135 +317,13 @@
                     <span class="btn btn_blue popup_open" data-popup-id='2'>Оставить заявку на услугу</span>
                 </div>
 
-                <!-- <div data-id="popup_4" class="popup popup_event" data-anchor="event">
-                    <div class="popup__inner">
-                        <div class="slide__inner">
-                            <h2 class="slide__header">Event</h2>
-                            <div class="slide__features clearfix">
-                                <div class="feature">
-                                    <div class="feature__img">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59.34 71.05" class="feature__img_private icon">
-                                            <path d="M0.72,22.54c-2.51,13.74,1.8,26,9.62,27.46a8.52,8.52,0,0,0,1.51.13c7.37,0,14.86-9.56,17.21-22.41Zm1.94,2.74,23.61,4.31C23.77,40,17.68,47.79,11.85,47.79a6,6,0,0,1-1.09-.1c-2.92-.53-5.37-3.23-6.9-7.59a33.09,33.09,0,0,1-1.2-14.83"/><rect x="-0.71" y="57.7" width="18.85" height="2.34" transform="translate(-50.76 56.84) rotate(-79.63)"/><rect x="5.86" y="62.53" width="2.34" height="11.21" transform="translate(-61.27 62.81) rotate(-79.65)"/><path d="M59,23.91l-28.56,3.8c1.76,13.19,9,23.23,16.51,23.23A8,8,0,0,0,48,50.87C55.9,49.82,60.8,37.75,59,23.91Zm-2.08,2.64c0.87,11.37-3.1,21.19-9.17,22a6.09,6.09,0,0,1-.8.06c-5.85,0-11.78-8.28-13.81-18.88l23.78-3.17"/><rect x="48.03" y="50.38" width="2.34" height="18.85" transform="translate(-7.47 7.02) rotate(-7.59)"/><rect x="44.84" y="67.98" width="11.21" height="2.34" transform="translate(-8.65 7.23) rotate(-7.55)"/><rect x="10.08" y="10.89" width="2.35" height="11.95" transform="translate(-8.64 12.92) rotate(-45.05)"/><rect x="13.11" y="4.75" width="2.34" height="11.24" transform="translate(-3.34 9.31) rotate(-32.53)"/><rect x="21.45" y="4.23" width="2.35" height="12.28" transform="translate(-2.17 8.27) rotate(-19.78)"/><rect x="29.49" y="0.04" width="2.35" height="13.39" transform="translate(-0.25 1.24) rotate(-2.31)"/><rect x="32.11" y="9.2" width="12.33" height="2.35" transform="translate(15.24 42.65) rotate(-69.64)"/><rect x="39.86" y="11.24" width="11.46" height="2.35" transform="translate(7.19 39.96) rotate(-50.88)"/><rect x="40.46" y="19.08" width="9.33" height="2.34" transform="translate(-4.13 24.72) rotate(-29.35)"/><rect x="1.51" y="32.9" width="24.62" height="2.34"/><rect x="33.28" y="32.9" width="24.62" height="2.34"/>
-                                        </svg>
-                                    </div>
-                                    <h3 class="feature__title">Частные мероприятия</h3>
-                                </div>
-                                <div class="feature">
-                                    <div class="feature__img">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 71.45" class="feature__img_corporate icon">
-                                            <path d="M25.85,9.25A19.78,19.78,0,0,0,20,23.32a1.39,1.39,0,0,0,2.78,0,17,17,0,0,1,5-12.11,1.38,1.38,0,0,0,.41-1A1.39,1.39,0,0,0,25.85,9.25Z"/><path d="M67.06,22.76a1.39,1.39,0,1,0,2.78,0A12.88,12.88,0,0,0,66,13.59a1.39,1.39,0,0,0-2,2A10.09,10.09,0,0,1,67.06,22.76Z"/><path d="M9,13.59a12.89,12.89,0,0,0-3.8,9.17,1.39,1.39,0,1,0,2.78,0,10.14,10.14,0,0,1,3-7.2A1.39,1.39,0,1,0,9,13.59Z"/><path d="M56.48,37.54l0.46-1,0.48-1.12c0.14-.33.27-0.66,0.4-1s0.28-.75.42-1.12,0.23-.64.34-1,0.24-.76.36-1.13,0.19-.62.27-0.93,0.19-.76.29-1.14,0.15-.58.21-0.87,0.15-.77.22-1.16,0.1-.53.14-0.79c0.07-.42.11-0.83,0.15-1.23,0-.21.06-0.43,0.07-0.63,0.05-.6.07-1.2,0.07-1.77s0-1.15-.07-1.71c0-.18,0-0.37-0.06-0.55,0-.38-0.08-0.77-0.14-1.15,0-.22-0.07-0.42-0.11-0.64s-0.13-.69-0.21-1-0.1-.44-0.16-0.66-0.18-.66-0.28-1-0.14-.43-0.21-0.65-0.24-.66-0.37-1-0.16-.4-0.25-0.6-0.32-.69-0.49-1l-0.25-.51c-0.25-.47-0.51-0.94-0.8-1.4l0-.09a11.79,11.79,0,0,1,3.36-.49A11.94,11.94,0,0,1,72.22,22.17c0,6.76-6.51,17.78-11.66,17.78a7.23,7.23,0,0,1-4.36-1.8C56.3,37.94,56.38,37.74,56.48,37.54ZM38.1,52C27.81,52,17.75,33.45,17.75,22.7A19.94,19.94,0,0,1,37.66,2.79,20,20,0,0,1,57.57,22.7a21.85,21.85,0,0,1-.29,3.42,40.27,40.27,0,0,1-4.06,11.74C48.87,46.3,42.79,52,38.1,52Zm-23.66-12c-5.14,0-11.66-11-11.66-17.78A11.94,11.94,0,0,1,14.71,10.23a11.78,11.78,0,0,1,3.36.49,22.45,22.45,0,0,0-3.44,12c0,4.44,1.51,10,4.16,15.45A7.23,7.23,0,0,1,14.44,39.95Zm47.18,2.74,0.08-.08C68.59,41.37,75,29.32,75,22.16A14.73,14.73,0,0,0,60.29,7.45a14.52,14.52,0,0,0-5.09.93A22.59,22.59,0,0,0,20,8.47a14.56,14.56,0,0,0-5.3-1A14.73,14.73,0,0,0,0,22.16c0,6.89,5.94,18.28,12.52,20.24a5.22,5.22,0,0,0-1,2,3.74,3.74,0,0,0,.57,2.88,12,12,0,0,0,2.29,2.41c1.49,1.29,1.44,1.38,1.07,1.93a1.39,1.39,0,0,0,.39,1.93,1.37,1.37,0,0,0,.77.23,1.38,1.38,0,0,0,1.16-.62c1.78-2.68-.23-4.42-1.57-5.58a9.67,9.67,0,0,1-1.79-1.85A0.94,0.94,0,0,1,14.25,45a5,5,0,0,1,2-2.33,1.37,1.37,0,0,0,.24-0.24,11.19,11.19,0,0,0,3.8-1.93C24,47.28,29.43,53,35.37,54.42a8.66,8.66,0,0,0-2.27,4,5.3,5.3,0,0,0,.82,4.08,13.94,13.94,0,0,0,4.17,3.8c2.22,1.49,2.29,1.66,1.39,3a1.39,1.39,0,0,0,1.16,2.16,1.37,1.37,0,0,0,1.16-.62c2.49-3.73-.2-5.54-2.16-6.85a11.61,11.61,0,0,1-3.4-3,2.48,2.48,0,0,1-.41-2c0.38-1.82,2.47-3.61,3.46-4.31,6.13-.78,11.87-7.38,15.6-14A11.46,11.46,0,0,0,58,42.29a5.37,5.37,0,0,0-1.07,2.16,3.73,3.73,0,0,0,.58,2.88,12.06,12.06,0,0,0,2.29,2.41c1.49,1.29,1.43,1.38,1.07,1.92a1.39,1.39,0,0,0,.39,1.93,1.39,1.39,0,0,0,1.93-.39c1.78-2.68-.23-4.42-1.57-5.58a9.61,9.61,0,0,1-1.79-1.85A1,1,0,0,1,59.64,45,5.08,5.08,0,0,1,61.62,42.68Z"/>
-                                        </svg>
-                                    </div>
-                                    <h3 class="feature__title">Корпоративные мероприятия</h3>
-                                </div>
-                                <div class="feature">
-                                    <div class="feature__img">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 64.66" class="feature__img_public icon">
-                                            <path d="M2.27,62.38V42.83L8,37.11H67l5.71,5.71V62.38H2.27Zm0-60.11H6.38V35.51l-4.11,4.1V2.27ZM8.65,27.84a8.24,8.24,0,0,1,7,7h-7v-7Zm0-25.56H22.07a38.46,38.46,0,0,1-4.43,14.36c-2.47,4.64-5.78,8.17-9,8.81V2.27Zm57.7,25.56v7h-7A8.23,8.23,0,0,1,66.35,27.84ZM50.65,2.27a40.36,40.36,0,0,0,4.7,15.44c2,3.71,4.54,7,7.59,8.81A10.51,10.51,0,0,0,57,34.84H18a10.51,10.51,0,0,0-5.91-8.33c3-1.76,5.58-5.1,7.59-8.81A40.27,40.27,0,0,0,24.35,2.27h26.3Zm15.7,0V25.45c-3.21-.64-6.53-4.17-9-8.81A38.45,38.45,0,0,1,52.93,2.27H66.35Zm2.27,0h4.11V39.61l-4.11-4.1V2.27Zm6-1.94A1.15,1.15,0,0,0,73.86,0H1.14A1.13,1.13,0,0,0,0,1.14V63.52a1.13,1.13,0,0,0,1.14,1.14H73.86A1.13,1.13,0,0,0,75,63.52V1.14A1.15,1.15,0,0,0,74.67.33ZM58.48,53.18a6.2,6.2,0,0,0-6.2,6.2,1.14,1.14,0,0,0,2.27,0,3.93,3.93,0,0,1,7.85,0,1.14,1.14,0,1,0,2.27,0A6.21,6.21,0,0,0,58.48,53.18Zm-14,0a6.19,6.19,0,0,0-6.19,6.2,1.14,1.14,0,1,0,2.27,0,3.93,3.93,0,0,1,7.86,0,1.14,1.14,0,1,0,2.27,0A6.2,6.2,0,0,0,44.49,53.18Zm-14,0a6.2,6.2,0,0,0-6.2,6.2,1.14,1.14,0,1,0,2.27,0,3.93,3.93,0,0,1,7.86,0,1.14,1.14,0,1,0,2.27,0A6.2,6.2,0,0,0,30.5,53.18Zm-14,0a6.2,6.2,0,0,0-6.2,6.2,1.14,1.14,0,1,0,2.27,0,3.92,3.92,0,1,1,7.85,0,1.14,1.14,0,1,0,2.27,0A6.2,6.2,0,0,0,16.52,53.18Zm39.16-2.46a1.14,1.14,0,0,0,2.27,0,6.2,6.2,0,0,0-12.4,0,1.14,1.14,0,0,0,2.27,0A3.93,3.93,0,0,1,55.67,50.72Zm-14.25,0a1.14,1.14,0,0,0,2.27,0,6.2,6.2,0,0,0-12.39,0,1.14,1.14,0,0,0,2.27,0A3.92,3.92,0,1,1,41.42,50.72Zm-14.25,0a1.14,1.14,0,0,0,2.27,0,6.2,6.2,0,0,0-12.39,0,1.14,1.14,0,0,0,2.27,0A3.92,3.92,0,0,1,27.18,50.72Z"/>
-                                        </svg>
-                                    </div>
-                                    <h3 class="feature__title">Публичные мероприятия</h3>
-                                </div>
-                            </div>
-                            <div class="slide__btns">
-                                <a href="#services/production" class="btn btn_prev">Production</a>
-                                <a href="#services/creative" class="btn btn_next">Creative</a>
-                            </div>
-                            <a href="javascript:PopUpShow()" class="btn btn_blue">Оставить заявку на услугу</a>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div data-id="popup_5" class="popup popup_creative" data-anchor="creative">
-                    <div class="popup__inner">
-                        <div class="popup__screens">
-                            <div class="screen slide_creative" data-anchor="creative">
-                                <div class="slide__inner">
-                                    <h2 class="slide__header">Creative</h2>
-                                    <div class="slide__features clearfix">
-                                        <div class="feature">
-                                            <div class="feature__img">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.64 67.5" class="feature__img_style icon">
-                                                    <path d="M55.69,3.38H45.56a1.69,1.69,0,0,0-1.69,1.69v5.06a1.68,1.68,0,0,0,1.69,1.69H55.69a1.68,1.68,0,0,0,1.69-1.69V5.06A1.69,1.69,0,0,0,55.69,3.38Zm0,1.69v5.06H45.56V5.06H55.69"/><rect x="43.88" y="15.19" width="13.5" height="8.44" rx="1.69" ry="1.69"/><path d="M57.26,64.13H53.71V30.4h3.56V64.13Zm-5.56,0h-18V30.4h18V64.13ZM3.38,54V3.38H37.13V27H33.75a3.37,3.37,0,0,0-3.37,3.38V54h-27ZM57.26,27H40.5V3.38A3.37,3.37,0,0,0,37.13,0H3.38A3.38,3.38,0,0,0,0,3.38V54a3.37,3.37,0,0,0,3.38,3.38h27v6.75a3.37,3.37,0,0,0,3.37,3.38H57.26a3.37,3.37,0,0,0,3.38-3.37V30.4A3.37,3.37,0,0,0,57.26,27Z"/><path d="M2.77,60.75a0.84,0.84,0,1,0,0,1.69H5.91V60.75H2.77Z"/><polygon points="25.66 60.75 6.75 60.75 6.75 62.44 25.66 62.44 25.66 62.39 27 61.57 25.66 60.75"/>
-                                                </svg>
-                                            </div>
-                                            <h3 class="feature__title">Фирменный стиль</h3>
-                                        </div>
-                                        <div class="feature">
-                                            <div class="feature__img">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.44 60.44" class="feature__img_graph icon">
-                                                    <path d="M2.77,60.75a0.84,0.84,0,1,0,0,1.69H5.91V60.75H2.77Z"/><polygon points="25.66 60.75 6.75 60.75 6.75 62.44 25.66 62.44 25.66 62.39 27 61.57 25.66 60.75"/>
-                                                    <path d="M43.09,28.86L35.73,21.5a0.7,0.7,0,0,0-.2-0.64L31.8,17.13l1.64-1.65,3.74,3.73a0.71,0.71,0,0,0,1-1l-3.73-3.74,1.64-1.65,3.73,3.73a0.71,0.71,0,0,0,1-1l-3.73-3.73,1.65-1.65,7.05,7.06a0.71,0.71,0,0,0,1,0,0.72,0.72,0,0,0,0-1L39.75,9.18l1.56-1.55,0.09-.09,3.74,3.73a0.71,0.71,0,0,0,1-1L42.41,6.52l1.65-1.65L47.79,8.6a0.71,0.71,0,1,0,1-1L45.06,3.87l2.15-2.15,11.5,11.51Zm6.67,8.68L38.24,49l-6.67-6.66-1-1L19.06,29.87l-1-1-2.74-2.73A3,3,0,0,1,16,23.58a4.44,4.44,0,0,1,3.26-1A0.71,0.71,0,0,0,20,22a4.75,4.75,0,0,1,1.1-2.31,2.08,2.08,0,0,1,1.71-.64,0.7,0.7,0,0,0,.59-0.25,0.74,0.74,0,0,0,.15-0.62,3,3,0,0,1,.63-2.57,4,4,0,0,1,2.77-.92l3.68,3.68,11.51,11.5ZM13.22,58.72L1.72,47.22l7.84-7.86,3.73,3.73a0.71,0.71,0,1,0,1-1l-3.73-3.74,1.65-1.64,3.73,3.73a0.71,0.71,0,0,0,1-1l-3.73-3.73,1.65-1.65,3.74,3.73a0.71,0.71,0,0,0,1-1l-3.73-3.73,1.65-1.65,7.05,7.05a0.71,0.71,0,0,0,1,0l0,0,4,4Zm0.94-34.89-0.32-.64L7.23,9.75l3.23-3.23L23.9,13.13l0.91,0.46a4.24,4.24,0,0,0-1.69,1A4.1,4.1,0,0,0,22,17.68a3.55,3.55,0,0,0-2,1,5.86,5.86,0,0,0-1.37,2.52A5.42,5.42,0,0,0,15,22.56,3.89,3.89,0,0,0,14.16,23.83ZM60.23,12.73L47.72,0.21a0.71,0.71,0,0,0-1,0L30.57,16.35,27.72,13.5a0.71,0.71,0,0,0-.23-0.17l-1.69-.83L25,12.08,2.85,1.19A0.72,0.72,0,0,0,2,1.33a0.71,0.71,0,0,0-.14.82L14,26.8a0.82,0.82,0,0,0,.18.22h0l2.85,2.84L0.21,46.72a0.71,0.71,0,0,0,0,1L12.72,60.23a0.71,0.71,0,0,0,1,0L30.56,43.39l7.17,7.16a0.7,0.7,0,0,0,1,0L51.26,38a0.72,0.72,0,0,0,0-1l-7.17-7.16L60.23,13.73A0.71,0.71,0,0,0,60.23,12.73Z"/><path d="M13.06,50.5a2.18,2.18,0,1,1,0-3.08A2.19,2.19,0,0,1,13.06,50.5ZM9,46.41a3.6,3.6,0,1,0,5.09,0A3.61,3.61,0,0,0,9,46.41Z"/><path d="M56.52,50.55l-5.27,5.27c-1.52,1.51-5.2.5-7.16-1L55.52,43.39C57,45.35,58,49,56.52,50.55Zm-1.46-8.7L42.55,54.36a0.7,0.7,0,0,0,0,1A10,10,0,0,0,49,58a4.46,4.46,0,0,0,3.24-1.16l5.28-5.27c2.35-2.35.73-7.51-1.45-9.7A0.73,0.73,0,0,0,55.06,41.85Z"/><path d="M35.62,38.34L22,24.7a0.7,0.7,0,0,0-1,0,0.71,0.71,0,0,0,0,1l17.5,17.5a0.71,0.71,0,0,0,1-1Z"/><path d="M39,32.95L26.36,20.31a0.71,0.71,0,0,0-1,1l17.5,17.5a0.71,0.71,0,1,0,1-1Z"/><path d="M54.52,40.3a0.71,0.71,0,0,0-1,0L41,52.81a0.71,0.71,0,0,0,1,1L54.52,41.3A0.71,0.71,0,0,0,54.52,40.3Z"/><path d="M53,38.75a0.72,0.72,0,0,0-1,0L39.45,51.26a0.71,0.71,0,0,0,1,1L53,39.75A0.71,0.71,0,0,0,53,38.75Z"/>
-                                                </svg>
-                                            </div>
-                                            <h3 class="feature__title">Графический дизайн</h3>
-                                        </div>
-                                        <div class="feature">
-                                            <div class="feature__img">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 67.5 67.5" class="feature__img_branding icon">
-                                                    <path d="M33.75,62.93H33.52a29.32,29.32,0,0,1-20.62-8.7A28.86,28.86,0,0,1,4.58,33.6,29.21,29.21,0,1,1,33.75,62.93ZM33.75,0A33.85,33.85,0,0,0,0,33.52,33.26,33.26,0,0,0,9.75,57.45,33.37,33.37,0,0,0,33.52,67.5h0.23A33.75,33.75,0,1,0,33.75,0Z"/><path d="M47.77,27.9A11.36,11.36,0,0,0,36.45,16.57H24.75a2.18,2.18,0,0,0-2.18,2.18v30.9a2.18,2.18,0,0,0,4.35,0V20.93h9.52a7,7,0,1,1,0,14h-2.7a2.26,2.26,0,0,0-2,1.27,2,2,0,0,0,.38,2.33l11.4,12.3a2.18,2.18,0,1,0,3.22-2.93L38.55,39A11.28,11.28,0,0,0,47.77,27.9Z"/>
-                                                </svg>
-                                            </div>
-                                            <h3 class="feature__title">Брендинг</h3>
-                                        </div>
-                                    </div>
-                                    <div class="slide__btns">
-                                        <a href="#services/event" onclick="PopUpShow_event()" class="btn btn_prev">Event</a>
-                                        <a href="#services/digital" onclick="PopUpShow_digital()" class="btn btn_next">Digital</a>
-                                    </div>
-                                    <a href="javascript:PopUpShow()" class="btn btn_blue">Оставить заявку на услугу</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div data-id="popup_6" class="popup popup_digital" data-anchor="digital">
-                    <div class="popup__inner">
-                        <div class="popup__screens">
-                            <div class="screen slide_digital" data-anchor="digital">
-                                <div class="slide__inner">
-                                    <h2 class="slide__header">Digital</h2>
-                                    <div class="slide__features clearfix">
-                                        <div class="feature">
-                                            <div class="feature__img">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.94 61.84" class="feature__img_web icon">
-                                                    <path d="M3.93,57.91H67V14.13H3.93V57.91Zm65,3.93H2a2,2,0,0,1-2-2V12.17a2,2,0,0,1,2-2H69a2,2,0,0,1,2,2V59.88A2,2,0,0,1,69,61.84Z"/><path d="M3.93,10.2H67V3.93H3.93V10.2Zm65,3.93H2a2,2,0,0,1-2-2V2A2,2,0,0,1,2,0H69a2,2,0,0,1,2,2v10.2A2,2,0,0,1,69,14.13Z"/><path d="M9.11,7.07a1.38,1.38,0,0,1-2.75,0,1.38,1.38,0,1,1,2.75,0"/><path d="M13.23,7.07a1.38,1.38,0,0,1-2.75,0,1.38,1.38,0,0,1,2.75,0"/><path d="M17.34,7.07a1.38,1.38,0,0,1-2.75,0,1.38,1.38,0,1,1,2.75,0"/><path d="M25.58,42.34a1.71,1.71,0,0,1-1.21-.5L19,36.48A1.72,1.72,0,0,1,19,34l5.34-5.34a1.72,1.72,0,0,1,2.43,2.43l-4.13,4.13L26.8,39.4A1.72,1.72,0,0,1,25.58,42.34Z"/><path d="M45.36,42.34a1.7,1.7,0,0,1-1.22-.5,1.72,1.72,0,0,1,0-2.43l4.13-4.13-4.14-4.14a1.72,1.72,0,1,1,2.43-2.43l5.36,5.35a1.72,1.72,0,0,1,0,2.43l-5.34,5.34A1.71,1.71,0,0,1,45.36,42.34Z"/><path d="M33,46.31a1.6,1.6,0,0,1-.43-0.05,1.72,1.72,0,0,1-1.24-2.09L35.71,27a1.72,1.72,0,0,1,3.34.85L34.67,45A1.72,1.72,0,0,1,33,46.31Z"/>
-                                                </svg>
-                                            </div>
-                                            <h3 class="feature__title">Web-дизайн</h3>
-                                        </div>
-                                        <div class="feature">
-                                            <div class="feature__img">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.92 67.4" class="feature__img_apps icon">
-                                                    <path d="M29.92,26.64a0.08,0.08,0,0,1-.08-0.08,0.07,0.07,0,0,1,.08-0.07,0.07,0.07,0,0,1,.07.07A0.07,0.07,0,0,1,29.92,26.64Zm2.42-.08A2.42,2.42,0,1,0,29.92,29,2.42,2.42,0,0,0,32.34,26.56Z"/><path d="M25.36,36.67H23.54L22.64,35.1l0.91-1.57h1.81l0.91,1.57Zm1.8-5A1.25,1.25,0,0,0,26.08,31H22.82a1.25,1.25,0,0,0-1.08.63l-1.63,2.82a1.25,1.25,0,0,0,0,1.25l1.63,2.82a1.25,1.25,0,0,0,1.08.62h3.25a1.25,1.25,0,0,0,1.08-.62l1.63-2.82a1.26,1.26,0,0,0,0-1.25Z"/><path d="M49.42,42H47.51V32.61h1.91V42ZM45,56.9a1.94,1.94,0,0,1-1.93,1.93H16.76a1.94,1.94,0,0,1-1.93-1.93V10.83a1.94,1.94,0,0,1,1.93-1.93H43.07A1.94,1.94,0,0,1,45,10.83V56.9h0ZM16,63.84L3.56,51.39l8.77-3V56.9a4.44,4.44,0,0,0,4.43,4.43h0.1Zm-4.72-40.5a5,5,0,0,1,1-3.06V26.4A5,5,0,0,1,11.29,23.34Zm39.38,6.78H47.51V10.82a4.44,4.44,0,0,0-4.43-4.43H23.72l-5.26-6a1.25,1.25,0,1,0-1.88,1.65l3.8,4.32H16.75a4.44,4.44,0,0,0-4.43,4.43v6.12a7.56,7.56,0,0,0,0,12.8v16L0.85,49.67a1.25,1.25,0,0,0-.48,2.07L15.66,67a1.24,1.24,0,0,0,.88.37,1.39,1.39,0,0,0,.28,0,1.24,1.24,0,0,0,.9-0.82l1.77-5.22H43.08a4.44,4.44,0,0,0,4.43-4.43V44.53h3.16a1.25,1.25,0,0,0,1.25-1.25V31.36A1.25,1.25,0,0,0,50.67,30.11Z"/><path d="M41.06,32.61V42H33.31V32.61h7.75ZM24.37,47l1.21-3.56A1.25,1.25,0,0,0,24,41.82l-5.22,1.77V30.51a7.57,7.57,0,0,0,0-14.34V14.65h8.89l9.57,10.86a1.25,1.25,0,0,0,1.76.11,1.26,1.26,0,0,0,.11-1.76L31,14.65H41.06V30.11h-9a1.25,1.25,0,0,0-1.25,1.25V43.28a1.25,1.25,0,0,0,1.25,1.25h9V47H24.37Zm-5.6-.74L22.4,45l-0.66,2h-3V46.23h0Zm0-27.35a5.07,5.07,0,0,1,0,8.91V18.88Zm23.54-6.74H17.52a1.25,1.25,0,0,0-1.25,1.25V48.21a1.25,1.25,0,0,0,1.25,1.25H42.31a1.25,1.25,0,0,0,1.25-1.25V13.4A1.26,1.26,0,0,0,42.31,12.15Z"/><path d="M29.92,55a0.9,0.9,0,1,1,.9-0.9A0.91,0.91,0,0,1,29.92,55Zm0-4.31a3.4,3.4,0,1,0,3.4,3.4A3.41,3.41,0,0,0,29.92,50.65Z"/>
-                                                </svg>
-                                            </div>
-                                            <h3 class="feature__title">Разработка приложений</h3>
-                                        </div>
-                                        <div class="feature">
-                                            <div class="feature__img">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.4 75.32" class="feature__img_video icon">
-                                                    <path d="M69.69,73.44H8.75a3.54,3.54,0,0,1-3.59-3.59V31.25H73.44V69.84A3.67,3.67,0,0,1,69.69,73.44ZM5.16,44.84H73.44M10.63,31.25L21.88,44.84m1.56-13.59L34.84,44.84m1.56-13.59L47.66,44.84m1.56-13.59L60.63,44.84m1.56-13.59L73.44,44.84M67.34,1.56L1.56,18,5.47,31.09,71.25,14.69ZM10.63,29.84l7-15.78m5.47,12.66,7-15.78m5.31,12.66,7-15.78M48,20.47L55,4.69m5.31,12.66,7-15.78" transform="translate(0.4 0.32)" fill="none" stroke-miterlimit="10" stroke-width="3.13"/>
-                                                </svg>
-                                            </div>
-                                            <h3 class="feature__title">Видео</h3>
-                                        </div>
-                                    </div>
-                                    <div class="slide__btns">
-                                        <a href="#services/creative" class="btn btn_prev">Creative</a>
-                                    </div>
-                                    <a href="javascript:PopUpShow()" class="btn btn_blue">Оставить заявку на услугу</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
     <!-- Скрипты -->
-    <script src="./js/jquery.min.js"></script>
-    <script src="./js/scripts.js"></script>
-    <script src="./js/jquery.fullPage.js"></script>
+    <script src="<?= get_assets_dir(); ?>/js/jquery.min.js"></script>
+    <script src="<?= get_assets_dir(); ?>/js/scripts.js"></script>
+    <script src="<?= get_assets_dir(); ?>/js/jquery.fullPage.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ0PT-P1EWEpIGfPeDHhgjfOWWe47I56g"></script>
     <script>
         function initialize() {
@@ -717,7 +341,7 @@
             var marker = new google.maps.Marker({
                 map: map,
                 position: myLatLng,
-                icon: './img/map-marker.svg',
+                icon: '<?= get_assets_dir(); ?>/img/map-marker.svg',
                 title: 'Solution P<br>Москва, Багратионовский проезд д. 7, +7 (495) 540-47-97'
             });
         }

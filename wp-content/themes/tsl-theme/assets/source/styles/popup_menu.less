@@ -1,0 +1,41 @@
+// main: ../less/main.less
+/*  S T A R T  O F  popup_menu.less  */
+
+
+.popup_menu {
+    // min-height: 550px;
+    overflow: scroll;
+}
+.popup_menu .popup__inner {
+    overflow: scroll;
+    background-color: rgba(14,51,60,0.95);
+}
+.popup__menu-item {
+    .font_header;
+    font-size: 30px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    .menu__link {
+        display: block;
+        color: @white;
+        .transition (all 0.3s);
+    }
+    &:hover .menu__link {
+        color: @main;
+        .transition (all 0.3s)
+    }
+    .menu__link:nth-last-child(1) {
+        margin-bottom: 20px;
+    }
+}
+.popup_menu .btn_blue {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+@media @mobile {
+    .popup_menu .btn_blue {
+        margin-top: 0;
+    }
+}
+
+/*  E N D  O F  popup_menu.less  */
