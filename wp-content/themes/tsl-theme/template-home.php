@@ -246,10 +246,10 @@
                     </div>
                 </h3>
                 <div class="blocks">
-                    <div class="popup-block">
+                    <div class="popup-block ">
                         <?php echo do_shortcode( '[contact-form-7 id="123" title="Заказать звонок"]' ); ?>
                     </div>
-                    <div class="popup-block popup-block--hidden">
+                    <div class="popup-block popup-block_hidden">
                         <?php echo do_shortcode( '[contact-form-7 id="124" title="Оставить сообщение"]' ); ?>
                     </div>
                 </div>
