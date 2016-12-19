@@ -1,11 +1,22 @@
 // main: ../less/main.less
 /*  S T A R T  O F  style.less  */
-/*  S T A R T  O F  style.less  */
 
 
 body {
-  font-family: Helvetica, Arial, sans;
-  -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    background: #fff;
+    font-family: Helvetica, Arial, sans;
+    .font-default;
+    -webkit-font-smoothing: antialiased;
+}
+h1 {
+	font: 90px/90px 'FuturaDemiC-Regular', sans-serif;
+	margin-bottom: 30px;
+	text-align: center;
+}
+h2 {
+	font: 34px/34px 'FuturaDemiC-Regular', sans-serif;
+	text-align: center;
 }
 
 #fullpage,
@@ -17,6 +28,7 @@ body {
     background-color: #edf0f0;
     background-position: center;
     background-size: cover;
+    color: @white;
 }
 .section__inner {
     max-width: 1180px;
@@ -56,9 +68,9 @@ body {
     .transition (all 0.3s);
 }
 .popup-block {
-    width: 420px;
+    min-width: 280px;
     display: inline-block;
-    text-align: left
+    text-align: left;
 }
 .popup__inner {
     height: 100%;
@@ -70,13 +82,224 @@ body {
 }
 .active {
     visibility: visible;
-    // overflow-y: scroll
 }
 .hide {
     visibility: hidden !important;
     .opacity (0);
     .transition (all 0.3s);
+    cursor: default;
     z-index: -100;
+}
+
+.row() {
+	width: 1180px;
+	min-width: 320px;
+	margin: 0 auto;
+}
+.vertical() {
+    display: table;
+    width: 100%;
+    min-height: 480px;
+}
+.vertical-inner() {
+    display: table-cell;
+    vertical-align: middle;
+}
+.fullscreen() {
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.button {
+	line-height: 40px !important;
+	display: inline-block;
+	height: 40px;
+	vertical-align: top;
+	padding: 0 25px;
+	text-transform: uppercase;
+	font: 14px/14px 'FuturaDemiC-Regular', sans-serif;
+	cursor: pointer;
+	user-select: none;
+	transition: all .2s linear;
+
+	// Цвета
+	&--white {
+		background: #fff;
+		color: @blue;
+		border: 1px solid #fff;
+		&:hover {
+			background: transparent;
+			border: 1px solid #fff;
+			color: #fff;
+		}
+	}
+	&--blue {
+		background: @blue;
+		color: #fff;
+		&:hover {
+			background: #399cb4;
+		}
+	}
+	&--transparent {
+		color: #fff;
+		border: 1px solid #fff;
+		&:hover {
+			background: #fff;
+			color: @blue;
+		}
+	}
+	&--transparent-blue {
+		color: @blue;
+		border: 1px solid @blue;
+		&:hover {
+			color:#fff;
+			background: @blue;
+		}
+	}
+	&--transparent-white {
+		color: #fff;
+		border: 1px solid #fff;
+		&:hover {
+			color:#fff;
+			background: @blue;
+			border: 1px solid @blue;
+		}
+	}
+
+	&--noborder {
+		border: none;
+	}
+
+	&__arrow {
+		transition: all .2s linear;
+    content: '';
+    width: 7px;
+    height: 11px;
+    background: url('../img/arrow-white.png') no-repeat;
+		display: inline-block;
+		margin-left: 5px;
+		&:hover {
+			background: url('../img/arrow.png') no-repeat;
+		}
+	}
+	&:hover {
+		.button__arrow {
+			background: url('../img/arrow-white.png') no-repeat;
+		}
+	}
+}
+article {
+	font: 16px/24px 'PTSerif', sans-serif;
+	text-align: center;
+	width: 820px;
+	margin: 0 auto;
+	&.long {
+		width: 900px;
+	}
+	& p {
+		margin-bottom: 10px;
+		font-size: 18px;
+		font-family: 'Futura New Book', sans-serif;
+	}
+}
+div.wpcf7-validation-errors {
+	display: none !important;
+}
+div.wpcf7-mail-sent-ok {
+	border: none;
+	font: 14px/18px 'FuturaDemiC-Regular', sans-serif;
+	color: @blue;
+}
+div.wpcf7 img.ajax-loader {
+	margin-top: 32px;
+}
+#map p {
+	color: #000;
+}
+
+.loader {
+	position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 500;
+    background: #fff;
+    &--hidden {
+    	display: none;
+    }
+	&:before{
+		content:'';
+		width:50px;
+		height:50px;
+		border-radius:50%;
+		box-sizing:border-box;
+		border:solid 3px transparent;
+		border-top-color: @blue;
+		-webkit-animation:spin 1s infinite linear;
+		animation:spin 1s infinite linear;
+		position:absolute;
+		top:50%;
+		left:50%;
+		margin:-15px 0 0 -15px
+	}
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// .wpcf7-not-valid ~ .control-label
+.wpcf7-not-valid-tip {
+	font: 13px/13px 'FuturaDemiC-Regular', sans-serif !important;
+	// color: fadeout(@red, 20%)  !important;
+	padding-left: 8px;
+	padding-top: 3px;
+}
+.input .wpcf7-not-valid-tip:before {
+    position: absolute;
+    content: '';
+    width: 418px;
+    height: 38px;
+    border: 1px solid @red;
+    top: -39px;
+    left: -1px;
+}
+// .input ::-webkit-input-placeholder {
+// 	color: fadeout(@blue, 20%);
+// }
+// .input ::-moz-placeholder          {
+// 	color: fadeout(@blue, 20%);
+// 	}/* Firefox 19+ */
+// .input :-moz-placeholder           {
+// 	color: fadeout(@blue, 20%);
+// 	}/* Firefox 18- */
+// .input :-ms-input-placeholder      {
+// 	color: fadeout(@blue, 20%);
+// }
+// textarea::-webkit-input-placeholder {
+// 	color: fadeout(@blue, 20%);
+// }
+// textarea::-moz-placeholder          {
+// 	color: fadeout(@blue, 20%);
+// 	}/* Firefox 19+ */
+// textarea:-moz-placeholder           {
+// 	color: fadeout(@blue, 20%);
+// 	}/* Firefox 18- */
+// textarea:-ms-input-placeholder      {
+// 	color: fadeout(@blue, 20%);
+// }
+
+.textarea {
+	& .wpcf7-not-valid-tip {
+		&:before {
+		    position: absolute;
+		    content: '';
+		    width: 418px;
+		    height: 74px;
+		    border: 1px solid #d24a43;
+		    top: -86px;
+		    left: -1px;
+		}
+	}
 }
 
 .input {
@@ -308,7 +531,7 @@ input[type='submit'].styler[disabled] {
 }
 .btn_close {
     content: '';
-    position: absolute;
+    // position: absolute;
     display: block;
     top: 25px;
     right: 20px;
@@ -324,7 +547,6 @@ input[type='submit'].styler[disabled] {
 }
 
 
-
 .screen {
     background-color: #edf0f0;
     background-color: #4f3b1a;
@@ -337,11 +559,15 @@ input[type='submit'].styler[disabled] {
 }
 .slide {
     height: 100%;
+    overflow: hidden;
+    // overflow: visible;
 }
 .slide__header {
-  /* margin-top: 150px; */
-  /* margin-bottom: 50px; */
+  // margin-top: 50px;
+  // margin-bottom: 50px;
+    padding: 20px;
     .font_header;
+    color: @white;
     font-size: 34px;
 }
 .slide__features {
@@ -360,8 +586,7 @@ input[type='submit'].styler[disabled] {
 }
 
 #fullPage-nav li a,
-#menu li a,
-a {
+#menu li a {
     text-decoration: none;
 }
 

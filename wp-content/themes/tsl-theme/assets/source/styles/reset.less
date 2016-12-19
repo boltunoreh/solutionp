@@ -23,8 +23,8 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 html {
 	width:100%;
 	height:100%;
-	//min-width: 1000px;
 	min-height: 580px;
+	overflow: hidden
 }
 
 body {
@@ -34,12 +34,8 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	background-repeat: no-repeat;
 	background-position: 50% 0;
-	// -webkit-transform:translate3d(0,0,0);
-}
-
-body,
-html {
 	overflow: hidden
+	// -webkit-transform:translate3d(0,0,0);
 }
 
 article, aside, details, figcaption, figure,
@@ -56,12 +52,8 @@ table {
 	border-spacing: 0;
 }
 
-img {
-	border: 0;
-}
-
 a, a:focus, a img, a img:focus {
-	// border: 0 none;
+	text-decoration: none;
 }
 
 a, a img, textarea, input {
@@ -82,7 +74,6 @@ del {
 	text-decoration: line-through;
 }
 
-
 blockquote, q {
 	quotes: none;
 }
@@ -92,21 +83,8 @@ q:before, q:after {
 	content: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-weight: normal;
-	margin: 0;
-}
-
-p {
-	margin: 0;
-}
-
-dl, dt, dd {
-	margin :0;
-}
-
 textarea {
-	overflow: none;
+	overflow: hidden;
 }
 
 

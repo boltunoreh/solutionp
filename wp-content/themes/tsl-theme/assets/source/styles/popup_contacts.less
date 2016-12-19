@@ -1,7 +1,6 @@
 // main: ../less/main.less
 /*  S T A R T  O F  popup_contacts.less  */
 
-
 .popup_contacts {
     overflow: scroll;
     background-color: @white;
@@ -53,6 +52,7 @@
     }
 }
 .popup_contacts .btn_close {
+    float: right;
     background-image: url(../img/cross_blue.svg);
     &:hover {
         // background-image: url(../img/cross_white.svg);
@@ -66,12 +66,11 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none
+    user-select: none;
 }
 .switch-title_disable {
-    opacity: .7;
-    filter: alpha(opacity=70);
-    cursor: pointer
+    .opacity(.7);
+    cursor: pointer;
 }
 
 .popup__switcher {
@@ -101,29 +100,13 @@
     border-radius: 50%;
     background: #fff;
     box-shadow: 0 6px 12px -4px #000;
-    -webkit-transition: all .2s linear;
-    transition: all .2s linear
+    .transition (all .2s linear);
 }
 .switch__item_left {
     left: 1px
 }
 .switch__item_right {
     left: 23px
-}
-.switch-title {
-    display: inline-block;
-    -webkit-transition: all .2s linear;
-    transition: all .2s linear;
-    cursor: default;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none
-}
-.switch-title_disable {
-    opacity: .7;
-    filter: alpha(opacity=70);
-    cursor: pointer
 }
 
 .popup-block_cart {
@@ -335,6 +318,10 @@
     }
     .popup_header {
         padding: 30px;
+    }
+    .switch,
+    .switch-title_disable {
+        display: none;
     }
 }
 

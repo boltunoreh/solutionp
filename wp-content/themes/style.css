@@ -1242,9 +1242,6 @@ input[type='submit'].styler[disabled] {
     max-width: 400px;
     padding-bottom: 15px;
   }
-  .section_services .services {
-    max-width: 400px;
-  }
 }
 /*  E N D  O F  section_services.less  */
 /*  S T A R T  O F  section_projects.less  */

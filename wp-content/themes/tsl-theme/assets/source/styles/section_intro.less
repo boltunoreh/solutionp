@@ -4,11 +4,7 @@
 
 .section_intro {
     min-height: 550px;
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSI5NC4zJSIgeTE9IjEwNy4zJSIgeDI9IjUuNyUiIHkyPSItNy4zJSI+PHN0b3Agc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjAiLz48c3RvcCBzdG9wLWNvbG9yPSIjZGFlMGUxIiBzdG9wLW9wYWNpdHk9IjEiIG9mZnNldD0iMSIvPjwvbGluZWFyR3JhZGllbnQ+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCN2c2dnKSIgLz48L3N2Zz4=);
-    background-image: -webkit-gradient(linear, 94.3% 107.3%, 5.7% -7.3%,color-stop(0, #ffffff),color-stop(1, #dae0e1));
-    background-image: -webkit-repeating-linear-gradient(120deg,#ffffff 0%,#dae0e1 100%);
-    background-image: -ms-repeating-linear-gradient(120deg,#ffffff 0%,#dae0e1 100%);
-    background-image: repeating-linear-gradient(330deg,#ffffff 0%,#dae0e1 100%);
+    color: @black;
 }
 .logo__img {
     width: 180px; // Это 0,4 от оригинала (450)
@@ -25,7 +21,7 @@
     font-size: 14px;
     .font_header;
     text-transform: uppercase;
-    .gradient (@startColor: rgba(255,255,255,0), @endColor: rgba(0,0,0,0.4));
+    .gradient (rgba(255,255,255,0), rgba(0,0,0,0.4));
     .transition (all 0.3s);
     &::before {
         content: '';

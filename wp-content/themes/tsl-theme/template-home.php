@@ -56,6 +56,7 @@
                     </div>
                 </div>
                 <!-- Услуги -->
+                <?php $first_service_slide_id = 3; ?>
                 <?php if ($image = get_field('index_service_background')) { ?>
                     <div id="section2" class="section section_services" style="background-image: url('<?php echo $image['url']; ?>')">
                 <?php } ?>
@@ -66,30 +67,33 @@
                         </p>
                         <div class="services clearfix">
                             <?php
-                            if (have_rows('index_service_slide')) {
-                                while (have_rows('index_service_slide')) {
-                                    the_row();
-                                    ?>
-                                    <div class="service__block">
-                                        <a href="#services/production" onclick="PopUpShow_production()"
-                                           class="service service_link">
-                                            <?php if ($image = get_sub_field('index_service_slide_ico')) { ?>
-                                                <div class="service__img_white" style="background-image: url('<?php echo $image['url']; ?>')"></div>
-                                            <?php } ?>
-                                            <?php if ($image = get_sub_field('index_service_slide_ico_h')) { ?>
-                                                <div class="service__img_color" style="background-image: url('<?php echo $image['url']; ?>')"></div>
-                                            <?php } ?>
-                                            <h3 class="service__title"><? the_sub_field('index_service_slide_title'); ?></h3>
-                                        </a>
-                                    </div>
-                                <?php } ?>
+                            $slide_id = $first_service_slide_id;
+                            while (have_rows('index_service_slide')) {
+                                the_row();
+                                ?>
+                                <div class="service__block">
+                                    <a href="#services/<?= strtolower(get_sub_field('index_service_slide_title')); ?>"
+                                       class="service service_link popup_open"
+                                       data-popup-id='<?= $slide_id; ?>'>
+                                        <?php if ($image = get_sub_field('index_service_slide_ico')) { ?>
+                                            <div class="service__img_white" style="background-image: url('<?php echo $image['url']; ?>')"></div>
+                                        <?php } ?>
+                                        <?php if ($image = get_sub_field('index_service_slide_ico_h')) { ?>
+                                            <div class="service__img_color" style="background-image: url('<?php echo $image['url']; ?>')"></div>
+                                        <?php } ?>
+                                        <h3 class="service__title"><?php the_sub_field('index_service_slide_title'); ?></h3>
+                                    </a>
+                                </div>
+                                <?php $slide_id++; ?>
                             <?php } ?>
                         </div>
                         <span class="btn btn_white popup_open" data-popup-id='3'>Подробнее о production</span>
                     </div>
                 </div>
                 <!-- Проекты -->
-                <div id="section3" class="section section_projects">
+                <?php if ($image = get_field('index_promo_bg')) { ?>
+                <div id="section3" class="section section_projects" style="background-image: url('<?php echo $image['url']; ?>')">
+                <?php } ?>
                     <div class="section__inner">
                         <div class="projects_icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58.02 54.76" class="projects_img icon">
@@ -103,11 +107,10 @@
                                     points="31.76 24.48 29 18.88 26.23 24.48 20.05 25.38 24.52 29.73 23.47 35.89 29 32.98 34.52 35.89 33.47 29.73 37.94 25.38 31.76 24.48"/>
                             </svg>
                         </div>
-                        <h2 class="section__header">Промо-акции и спецпроекты</h2>
+                        <h2 class="section__header"><?php the_field('index_promo_title'); ?></h2>
                         <p class="section__desc">
-                            Поможем организовать промо-акции и провести спецпроекты любой сложности по индивидумальным
-                            требованиям и запросам. Если у вас нестандартная задача, свяжитесь с нами и мы предложим
-                            творческое решение вашей бизнес-задачи.</p>
+                            <?php the_field('index_promo_text'); ?>
+                        </p>
                         <span class="btn btn_blue popup_open" data-popup-id='2'>Оставить заявку на участие</span>
                     </div>
                 </div>
@@ -117,27 +120,23 @@
                         <h2 class="section__header">Наши клиенты</h2>
                         <div class="clients">
                             <?php
-                            if (have_rows('index_clients_slide')) {
-                                while (have_rows('index_clients_slide')) {
+                            while (have_rows('index_clients_slide')) {
+                                the_row();
+                                while (have_rows('index_clients_slide_client')) {
                                     the_row();
-                                    if (have_rows('index_clients_slide_client')) {
-                                        while (have_rows('index_clients_slide_client')) {
-                                            the_row();
-                                            ?>
-                                            <div class="client">
-                                                <div class="client__img">
-                                                    <?php if ($image = get_sub_field('index_clients_slide_client_img')) { ?>
-                                                        <img class="img_white" src="<?php echo $image['url']; ?>">
-                                                    <?php } ?>
-                                                    <span class="client__img_hover">
-                                                <?php if ($image = get_sub_field('index_clients_slide_client_img_h')) { ?>
-                                                    <img class="img_color" src="<?php echo $image['url']; ?>">
-                                                <?php } ?>
-                                            </span>
-                                                </div>
-                                            </div>
+                                    ?>
+                                    <div class="client">
+                                        <div class="client__img">
+                                            <?php if ($image = get_sub_field('index_clients_slide_client_img')) { ?>
+                                                <img class="img_white" src="<?php echo $image['url']; ?>">
+                                            <?php } ?>
+                                            <span class="client__img_hover">
+                                        <?php if ($image = get_sub_field('index_clients_slide_client_img_h')) { ?>
+                                            <img class="img_color" src="<?php echo $image['url']; ?>">
                                         <?php } ?>
-                                    <?php } ?>
+                                    </span>
+                                        </div>
+                                    </div>
                                 <?php } ?>
                             <?php } ?>
                         </div>
@@ -150,27 +149,20 @@
                             <h2 class="section__header">Наши партнеры</h2>
                             <div class="partners">
                                 <?php
-                                if (have_rows('index_partners_slide')) {
-                                    while (have_rows('index_partners_slide')) {
+                                while (have_rows('index_partners_slide')) {
+                                    the_row();
+                                    while (have_rows('index_partners_slide_client')) {
                                         the_row();
-                                        if (have_rows('index_partners_slide_client')) {
-                                            while (have_rows('index_partners_slide_client')) {
-                                                the_row();
+                                        ?>
+                                        <div class="partner">
+                                            <div class="partner__img">
+                                                <?php
+                                                if ($svg = get_sub_field('index_partners_slide_client_svg')) {
+                                                    echo $svg;
+                                                }
                                                 ?>
-                                                <div class="partner">
-                                                    <div class="partner__img">
-                                                        <?php if ($image = get_sub_field('index_partners_slide_client_img')) { ?>
-                                                            <img class="img_white" src="<?php echo $image['url']; ?>">
-                                                        <?php } ?>
-                                                        <span class="partner__img_hover">
-                                                    <?php if ($image = get_sub_field('index_partners_slide_client_img_h')) { ?>
-                                                        <img class="img_color" src="<?php echo $image['url']; ?>">
-                                                    <?php } ?>
-                                                </span>
-                                                    </div>
-                                                </div>
-                                            <?php } ?>
-                                        <?php } ?>
+                                            </div>
+                                        </div>
                                     <?php } ?>
                                 <?php } ?>
                             </div>
@@ -183,14 +175,14 @@
                         <div class="contacts__block">
                             <h2 class="section__header">Контакты</h2>
                             <span class="contact address">
-							Москва, Багратионовский проезд, д. 7
-						</span>
+                            Москва, Багратионовский проезд, д. 7
+                        </span>
                             <span class="contact telephone">
-							+7 495 540-47-97
-						</span>
+                            +7 495 540-47-97
+                        </span>
                             <span class="contact email">
-							<a href="mailto:info@solutionp.ru">info@solutionp.ru</a>
-						</span>
+                            <a href="mailto:info@solutionp.ru">info@solutionp.ru</a>
+                        </span>
                             <span class="contact soc-icon fb"></span>
                             <span class="contact soc-icon inst"></span>
                             <span class="contact soc-icon twit"></span>
@@ -203,7 +195,7 @@
         <!-- Попап меню -->
         <div data-id="1" class="popup popup1 popup_menu">
             <div class="popup__inner">
-                <div class="popup__menu-item clearfix">
+                <div class="popup__menu-item">
                     <a href="#intro" class="logo_header">
                         <img src="<?= get_assets_dir(); ?>/img/logo.png" alt="Solution-P logotype" class="logo__img_header"></a>
                 </div>
@@ -234,6 +226,7 @@
         <!-- Попап Связаться / Заказать звонок -->
         <div data-id="2" class="popup popup2 popup_contacts">
             <div class="popup__inner">
+                <span class="btn btn_close popup_close"></span>
                 <h3 class="popup_header">
                     <div class="switch-title switch-title_left">
                         Заказать звонок
@@ -266,64 +259,76 @@
                     <a href="#" class="social__item social__item_insta-p"></a>
                     <a href="#" class="social__item social__item_tw-p"></a>
                 </div>
-                <span class="btn btn_close popup_close"></span>
             </div>
         </div>
-        <!-- Попап Услуги -->
-        <div data-id="3" class="popup popup3 popup_services">
-            <div class="popup__inner_services">
-                <span class="btn btn_close popup_close"></span>
-                <div class="slide slide_production">
-                    <h2 class="slide__header">Production</h2>
-                    <div class="slide__features clearfix">
-                        <div class="feature">
-                            <div class="feature__img">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.62 72.65"
-                                     class="feature__img_souvenir icon">
-                                    <path
-                                        d="M20.42,23.54a6.54,6.54,0,0,0,5.56.1,1.11,1.11,0,0,0-.91-2,4.34,4.34,0,0,1-3.66-.07A1.11,1.11,0,1,0,20.42,23.54Z"/>
-                                    <path
-                                        d="M41.16,63.12L41,63.48c-1.82,5.12-2.68,6.56-3,7H8.58c-0.31-.39-1.17-1.83-3-7l-0.13-.36C2.85,56.07,1.83,50,2.35,44.68a29.81,29.81,0,0,1,1.26-6l1.1,0c0.86,0,1.95,0,3.18-.14A17.82,17.82,0,1,0,41,47.61a17.67,17.67,0,0,0-2.47-9c1,0.07,1.93.1,2.68,0.1s1.43,0,1.75,0a30,30,0,0,1,1.27,6.06C44.79,50.05,43.77,56.08,41.16,63.12ZM14,18.18a16.45,16.45,0,0,0,3.36-1.43,1.49,1.49,0,0,0,2.64-1,1.48,1.48,0,0,0-.18-0.7,13,13,0,0,0,3.48-4.28,13,13,0,0,0,3.48,4.28,1.47,1.47,0,0,0-.18.7,1.49,1.49,0,0,0,2.64,1,16.45,16.45,0,0,0,3.36,1.43h0a9.34,9.34,0,0,1-18.65,0h0Zm0.12-2.38A9.37,9.37,0,0,1,21.9,8.38C20.44,13,15.9,15.14,14.14,15.8ZM24.73,8.37a9.36,9.36,0,0,1,7.76,7.43C30.73,15.15,26.19,13,24.73,8.37ZM36.79,39.94a23.7,23.7,0,0,0-14.05,6.42A23.53,23.53,0,0,0,9.58,40.05a15.7,15.7,0,0,1,1.25-1.9c4.34-.77,9.35-2.62,12.15-6.9,2.93,4.47,8.25,6.28,12.72,7A15.07,15.07,0,0,1,36.79,39.94ZM30.63,61.34a29.69,29.69,0,0,0-6.41-13.43,21.87,21.87,0,0,1,13.23-5.84A1.2,1.2,0,0,0,37.77,42,15.59,15.59,0,0,1,30.63,61.34ZM22.74,49.48a26.33,26.33,0,0,1,5.76,12.6,0.87,0.87,0,0,0,0,.2A15.59,15.59,0,0,1,17,61.92,26.43,26.43,0,0,1,22.74,49.48ZM8.61,42.16a21.75,21.75,0,0,1,12.64,5.75,29.69,29.69,0,0,0-6.3,12.91A15.56,15.56,0,0,1,8.61,42.16ZM6.39,31.1a35.56,35.56,0,0,0,2.54-9.91C9,20.26,9,19.33,9,18.44a25.58,25.58,0,0,1,.21-3.7A14,14,0,0,1,16.81,4a14.52,14.52,0,0,1,5.46-1.69h0.06a6.58,6.58,0,0,1,1.94,0h0.06A14.53,14.53,0,0,1,29.83,4a13.94,13.94,0,0,1,7.55,10.75,25.28,25.28,0,0,1,.21,3.7c0,0.89,0,1.82.09,2.76a35.41,35.41,0,0,0,2.54,9.91l0.49,1.24c0.53,1.34,1.07,2.73,1.56,4.1-3.06.09-14.2-.13-18-7.31a11.6,11.6,0,1,0-2.64-.08c-2.22,4.34-7.12,6.16-11.36,6.9a1.15,1.15,0,0,0-.47.08,34.24,34.24,0,0,1-5.5.41c0.49-1.37,1-2.76,1.56-4.12ZM46.48,44.48a35.57,35.57,0,0,0-2.07-8.65c-0.51-1.44-1.08-2.9-1.63-4.3L42.3,30.29A33.41,33.41,0,0,1,39.91,21c-0.07-.86-0.07-1.7-0.08-2.6a27.7,27.7,0,0,0-.24-4A16.28,16.28,0,0,0,30.87,2,16.82,16.82,0,0,0,24.6.07,12,12,0,0,0,22,.07,16.69,16.69,0,0,0,15.8,2,16.31,16.31,0,0,0,7,14.4a27.73,27.73,0,0,0-.23,4c0,0.9,0,1.75-.08,2.6a33.41,33.41,0,0,1-2.39,9.27L3.84,31.52c-0.55,1.41-1.12,2.86-1.63,4.3A35.5,35.5,0,0,0,.14,44.47c-0.55,5.71.52,12.06,3.24,19.41L3.5,64.22C6.28,72,7.23,72.65,8.27,72.65H38.36c1,0,2-.61,4.76-8.43l0.12-.33C46,56.53,47,50.18,46.48,44.48Z"/>
-                                </svg>
+        <!-- Попапы Услуги -->
+        <?php
+        if ($rows = get_field('index_service_slide')) {
+            $slide_id = $first_service_slide_id;
+            $row_count = count($rows);
+            while (have_rows('index_service_slide')) {
+                the_row();
+                $slide_slug = strtolower(get_sub_field('index_service_slide_title'));
+                ?>
+                <div data-id="<?= $slide_id; ?>"
+                     class="popup popup<?= $slide_id; ?> popup_<?= $slide_slug ?>">
+                    <div class="popup__inner_services">
+                        <div class="slide slide_<?= $slide_slug ?>">
+                            <span class="btn btn_close popup_close"></span>
+                            <div class="popup-block">
+                                <h2 class="slide__header"><?php get_sub_field('index_service_slide_title'); ?></h2>
+                                <div class="slide__features clearfix">
+                                    <?php
+                                    while (have_rows('index_service_slide_block')) {
+                                        the_row();
+                                        ?>
+                                        <div class="feature">
+                                            <div class="feature__img">
+                                                <?php
+                                                if ($svg = get_sub_field('index_partners_slide_client_svg')) {
+                                                    echo $svg;
+                                                }
+                                                ?>
+                                            </div>
+                                            <h3 class="feature__title"><?php the_sub_field('index_service_slide_block_text'); ?></h3>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                                <div class="slide__btns">
+                                    <?php
+                                    if ($slide_id > $first_service_slide_id) {
+                                        $previous_slide_id = $slide_id - 1;
+                                        $previous_slide_title = $rows[$previous_slide_id - $first_service_slide_id]['index_service_slide_title'];
+                                        $previous_slide_slug = strtolower($previous_slide_title);
+                                        ?>
+                                        <a href="#services/<?= $previous_slide_slug; ?>"
+                                           class="btn btn_previous popup_open"
+                                           data-popup-id="<?= $previous_slide_id; ?>"><?= $previous_slide_title; ?></a>
+                                    <?php }
+                                    if ($slide_id < $first_service_slide_id - 1 + $row_count) {
+                                        $next_slide_id = $slide_id + 1;
+                                        $next_slide_title = $rows[$next_slide_id - $first_service_slide_id]['index_service_slide_title'];
+                                        $next_slide_slug = strtolower($next_slide_title);
+                                        ?>
+                                        <a href="#services/<?= $next_slide_slug; ?>"
+                                           class="btn btn_next popup_open"
+                                           data-popup-id="<?= $next_slide_id; ?>"><?= $next_slide_title; ?></a>
+                                    <?php } ?>
+                                    <span class="btn btn_blue popup_open" data-popup-id='2'>Оставить заявку на услугу</span>
+                                </div>
                             </div>
-                            <h3 class="feature__title">Сувенирная продукция</h3>
-                        </div>
-                        <div class="feature">
-                            <div class="feature__img">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.04 64.02"
-                                     class="feature__img_outdoor icon">
-                                    <path
-                                        d="M23.91,53H13.13v1.47H23.92V53h0ZM4.34,41.86L24.83,29.6l7.88,6.81v7.27H4.34V41.86Zm0-7.68,6.81-3.39L14.54,34,4.34,40.14v-6Zm0-29.32H32.7V34.47L25,27.8l-9.13,5.46L11.41,29,4.34,32.54V4.86ZM2.87,45.16H34.18V3.38H2.87V45.16Zm32.7,1.5a0.22,0.22,0,0,1-.22.21H1.68a0.21,0.21,0,0,1-.21-0.21v-45a0.21,0.21,0,0,1,.21-0.21H35.35a0.21,0.21,0,0,1,.22.21v45ZM26.85,62.55H10.19V49.81H26.86V62.55h0ZM35.35,0H1.68A1.68,1.68,0,0,0,0,1.68v45a1.68,1.68,0,0,0,1.68,1.68h7V62.55H4.32V64H32.7V62.55H28.33V48.34h7A1.69,1.69,0,0,0,37,46.66v-45A1.68,1.68,0,0,0,35.35,0ZM12.85,18h7.06V16.52H12.85V18Zm14-4.71H15.94v1.47H26.82V13.28Zm-14,6.47H7.7v1.47h5.15V19.75Zm1-6.47H7.7v1.47h6.18V13.28Zm-2.65,3.24H7.7V18h3.53V16.52Zm10.29,0V18h4.85V16.52H21.52Zm-0.29,4.71h6.91V19.75H21.23v1.47Zm-6.77,0h4.85V19.75H14.47v1.47Zm-3,19.59,0.78,1.25L24,34.75,23.23,33.5Z"/>
-                                </svg>
-                            </div>
-                            <h3 class="feature__title">Наружная реклама</h3>
-                        </div>
-                        <div class="feature">
-                            <div class="feature__img">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.92 45.98"
-                                     class="feature__img_textile icon">
-                                    <path
-                                        d="M5.45,5.9A2.32,2.32,0,0,1,6.57,4.52l4.86-2.12c0.43-.19.77-0.33,1-0.42,0.18,0.15.43,0.37,0.74,0.67s5,4.83,9.8,4.83,9.6-4.64,9.8-4.83,0.56-.52.74-0.67c0.23,0.09.58,0.23,1,.42l4.85,2.13A2.3,2.3,0,0,1,40.48,5.9L44,23.6a0.78,0.78,0,0,1-.49.84L39,25.89,38.84,26V14.22a0.94,0.94,0,1,0-1.87,0V43.55a0.56,0.56,0,0,1-.55.55H9.52A0.56,0.56,0,0,1,9,43.55V28.73s0-.07,0-0.11V14.19a0.94,0.94,0,0,0-1.87,0V26L6.9,25.89,2.39,24.44A0.78,0.78,0,0,1,1.9,23.6ZM1.81,26.22l4.51,1.46a1.25,1.25,0,0,1,.76,1V30.5s0,0,0,0v13A2.43,2.43,0,0,0,9.52,46h26.9a2.43,2.43,0,0,0,2.43-2.43V28.73a1.25,1.25,0,0,1,.77-1.05l4.51-1.46a2.64,2.64,0,0,0,1.75-3L42.32,5.53a4.13,4.13,0,0,0-2.2-2.73L35.26,0.68A5.38,5.38,0,0,0,33.35,0c-0.29,0-.55,0-1.89,1.3,0,0-4.49,4.3-8.5,4.3s-8.45-4.26-8.5-4.3C13.13,0,12.87,0,12.57,0a5.38,5.38,0,0,0-1.91.68L5.81,2.8a4.13,4.13,0,0,0-2.2,2.73L0,23.23A2.65,2.65,0,0,0,1.81,26.22Z"/>
-                                    <path
-                                        d="M32.24,23.45H26.81a0.56,0.56,0,0,1-.55-0.55V17.12h6.53V22.9A0.56,0.56,0,0,1,32.24,23.45Zm-5.43,1.88h5.43a2.43,2.43,0,0,0,2.43-2.43V16.18a0.94,0.94,0,0,0-.94-0.94H25.32a0.94,0.94,0,0,0-.94.94V22.9A2.43,2.43,0,0,0,26.81,25.32Z"/>
-                                </svg>
-                            </div>
-                            <h3 class="feature__title">Текстиль. Пошив <br>и брендирование</h3>
                         </div>
                     </div>
-                    <div class="slide__btns">
-                        <a href="#services/event" class="btn btn_next">Event</a>
-                    </div>
-                    <span class="btn btn_blue popup_open" data-popup-id='2'>Оставить заявку на услугу</span>
                 </div>
-
-            </div>
-        </div>
+                <?php $slide_id++; ?>
+            <?php } ?>
+        <?php } ?>
     </div>
     <!-- Скрипты -->
-    <script src="<?= get_assets_dir(); ?>/js/jquery.min.js"></script>
-    <script src="<?= get_assets_dir(); ?>/js/scripts.js"></script>
-    <script src="<?= get_assets_dir(); ?>/js/jquery.fullPage.js"></script>
+    <?php $assets_dir = get_assets_dir(); ?>
+    <script src="<?= $assets_dir; ?>/js/jquery.min.js"></script>
+    <script src="<?= $assets_dir; ?>/js/scripts.js"></script>
+    <script src="<?= $assets_dir; ?>/js/jquery.fullPage.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ0PT-P1EWEpIGfPeDHhgjfOWWe47I56g"></script>
     <script>
         function initialize() {
