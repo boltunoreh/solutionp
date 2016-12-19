@@ -75,12 +75,11 @@
                                     <a href="#services/<?= strtolower(get_sub_field('index_service_slide_title')); ?>"
                                        class="service service_link popup_open"
                                        data-popup-id='<?= $slide_id; ?>'>
-                                        <?php if ($image = get_sub_field('index_service_slide_ico')) { ?>
-                                            <div class="service__img_white" style="background-image: url('<?php echo $image['url']; ?>')"></div>
-                                        <?php } ?>
-                                        <?php if ($image = get_sub_field('index_service_slide_ico_h')) { ?>
-                                            <div class="service__img_color" style="background-image: url('<?php echo $image['url']; ?>')"></div>
-                                        <?php } ?>
+                                        <?php
+                                        if ($svg = get_sub_field('index_partners_slide_client_svg')) {
+                                            echo $svg;
+                                        }
+                                        ?>
                                         <h3 class="service__title"><?php the_sub_field('index_service_slide_title'); ?></h3>
                                     </a>
                                 </div>
@@ -156,11 +155,14 @@
                                         ?>
                                         <div class="partner">
                                             <div class="partner__img">
-                                                <?php
-                                                if ($svg = get_sub_field('index_partners_slide_client_svg')) {
-                                                    echo $svg;
-                                                }
-                                                ?>
+                                                <?php if ($image = get_sub_field('index_partners_slide_client_img')) { ?>
+                                                    <img class="img_white" src="<?php echo $image['url']; ?>">
+                                                <?php } ?>
+                                                <span class="partner__img_hover">
+                                            <?php if ($image = get_sub_field('index_partners_slide_client_img_h')) { ?>
+                                                <img class="img_color" src="<?php echo $image['url']; ?>">
+                                            <?php } ?>
+                                        </span>
                                             </div>
                                         </div>
                                     <?php } ?>
