@@ -3,7 +3,7 @@
 <head>
     <?php $assets_dir = get_assets_dir(); ?>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,maximum-scale=1, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
     <title><? single_post_title(); ?></title>
     <meta name="title" content="Solution P"/>
     <meta name="description" content="Solution P"/>
