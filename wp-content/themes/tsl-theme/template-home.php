@@ -1,5 +1,6 @@
 <?php /* Template Name: Главная страница */ ?>
 <?php get_header(); ?>
+<?php $assets_dir = get_assets_dir(); ?>
     <div class="wrapper">
         <!-- Хедер -->
         <header class="header">
@@ -35,16 +36,19 @@
                         <i class="i_center"></i>
                         <i class="i_bottom"></i>
                     </div>
-                    <div class="btn btn_header popup_open" data-popup-id='2'>Связаться</div>
+                    <div class="btn btn_header btn_blue popup_open" data-popup-id='2'>Связаться</div>
             </div>
         </header>
         <!-- Секции -->
         <div class="middle">
             <div id="fullpage">
                 <!-- Интро -->
-                <?php if ($image = get_field('index_fs_background')) { ?>
+                <?php
+                if (!$image = get_field('index_fs_background')) {
+                    $image['url'] = null;
+                }
+                ?>
                 <div id="section1" class="section section_intro" style="background-image: url('<?php echo $image['url']; ?>')">
-                <?php } ?>
                     <div class="section__inner">
                         <?php if ($image = get_field('index_fs_logo')) { ?>
                             <img src="<?php echo $image['url']; ?>" alt="Solution-P logotype" class="logo__img">
@@ -56,38 +60,109 @@
                     </div>
                 </div>
                 <!-- Услуги -->
-                <?php $first_service_slide_id = 3; ?>
-                <?php if ($image = get_field('index_service_background')) { ?>
-                    <div id="section2" class="section section_services" style="background-image: url('<?php echo $image['url']; ?>')">
-                <?php } ?>
-                    <div class="section__inner">
-                        <h2 class="section__header"><? the_field('index_service_title'); ?></h2>
-                        <p class="section__desc">
-                            <? the_field('index_service_text'); ?>
-                        </p>
-                        <div class="services clearfix">
-                            <?php
-                            $slide_id = $first_service_slide_id;
-                            while (have_rows('index_service_slide')) {
-                                the_row();
-                                ?>
-                                <div class="service__block">
-                                    <a href="#services/<?= strtolower(get_sub_field('index_service_slide_title')); ?>"
-                                       class="service service_link popup_open"
-                                       data-popup-id='<?= $slide_id; ?>'>
-                                        <?php
-                                        if ($svg = get_sub_field('index_partners_slide_client_svg')) {
-                                            echo $svg;
-                                        }
-                                        ?>
-                                        <h3 class="service__title"><?php the_sub_field('index_service_slide_title'); ?></h3>
-                                    </a>
-                                </div>
-                                <?php $slide_id++; ?>
-                            <?php } ?>
+                <?php
+                $first_service_slide_id = 1;
+                if (!$image = get_field('index_service_background')) {
+                    $image['url'] = null;
+                }
+                ?>
+                <div id="section2" class="section section_services" style="background-image: url('<?php echo $image['url']; ?>')">
+                    <div id="slide1" class="slide slide_intro" data-anchor="services">
+                        <div class="section__inner">
+                            <h2 class="section__header"><? the_field('index_service_title'); ?></h2>
+                            <p class="section__desc">
+                                <? the_field('index_service_text'); ?>
+                            </p>
+                            <div class="services clearfix">
+                                <?php
+                                $slide_id = $first_service_slide_id;
+                                $slide_title = get_field('index_service_title');
+                                $slide_slug = strtolower($slide_title);
+                                $sub_slides = array();
+                                while (have_rows('index_service_slide')) {
+                                    the_row();
+                                    $sub_slide_title = get_sub_field('index_service_slide_title');
+                                    $sub_slide_slug = strtolower($sub_slide_title);
+                                    $sub_slides[$slide_id] = $sub_slide_slug;
+                                    ?>
+                                    <div class="service__block">
+                                        <a href="#services/<?= $sub_slide_slug; ?>" class="service service_link">
+                                            <div class="service__img">
+                                                <?php
+                                                if ($svg = get_sub_field('index_partners_slide_client_svg')) {
+                                                    echo $svg;
+                                                }
+                                                ?>
+                                            </div>
+                                            <h3 class="service__title"><?= $sub_slide_title; ?></h3>
+                                        </a>
+                                    </div>
+                                    <?php $slide_id++; ?>
+                                <?php } ?>
+                            </div>
+                            <a href="#services/<?= $sub_slides[$first_service_slide_id]; ?>" class="btn btn_white">Подробнее о <?= $sub_slides[$first_service_slide_id]; ?></a>
                         </div>
-                        <span class="btn btn_white popup_open" data-popup-id='3'>Подробнее о production</span>
                     </div>
+                    <!-- Слайды услуги -->
+                    <?php
+                    if ($rows = get_field('index_service_slide')) {
+                        $slide_id = $first_service_slide_id;
+                        $row_count = count($rows);
+                        while (have_rows('index_service_slide')) {
+                            the_row();
+                            $slide_title = get_sub_field('index_service_slide_title');
+                            $slide_slug = strtolower($slide_title);
+                            ?>
+                            <div id="slide<?= $slide_id; ?>" class="slide slide_<?= $slide_id; ?>" data-anchor="<?= $slide_slug; ?>" style="background-image: url(./img/bg_production.jpg);">
+                                <div class="section__inner">
+                                    <h2 class="section__header"><?= $slide_title ?></h2>
+                                    <div class="features">
+                                        <?php
+                                        while (have_rows('index_service_slide_block')) {
+                                            the_row();
+                                            ?>
+                                            <div class="feature">
+                                                <div class="feature__img">
+                                                    <?php
+                                                    if ($svg = get_sub_field('index_partners_slide_client_svg')) {
+                                                        echo $svg;
+                                                    }
+                                                    ?>
+                                                </div>
+                                                <h3 class="feature__title"><?php the_sub_field('index_service_slide_block_text'); ?></h3>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                    <div class="btns">
+                                        <span class="btn btn_blue popup_open" data-popup-id='2'>Оставить заявку на услугу</span>
+                                        <?php
+                                        if ($slide_id > $first_service_slide_id) {
+                                            $previous_slide_id = $slide_id - 1;
+                                            $previous_slide_title = $rows[$previous_slide_id - $first_service_slide_id]['index_service_slide_title'];
+                                            $previous_slide_slug = strtolower($previous_slide_title);
+                                            ?>
+                                            <a href="#services/<?= $previous_slide_slug; ?>"
+                                               class="btn btn_prev"><?= $previous_slide_title; ?></a>
+                                        <?php } else { ?>
+                                            <a href="#services/services" class="btn btn_prev">Услуги</a>
+                                        <?php
+                                        }
+                                        if ($slide_id < $first_service_slide_id - 1 + $row_count) {
+                                            $next_slide_id = $slide_id + 1;
+                                            $next_slide_title = $rows[$next_slide_id - $first_service_slide_id]['index_service_slide_title'];
+                                            $next_slide_slug = strtolower($next_slide_title);
+                                            ?>
+                                            <a href="#services/<?= $next_slide_slug; ?>"
+                                               class="btn btn_next"><?= $next_slide_title; ?></a>
+                                        <?php } else { ?>
+                                            <a href="#services/services" class="btn btn_next">Услуги</a>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php $slide_id++; ?>
+                        <?php } ?>
+                    <?php } ?>
                 </div>
                 <!-- Проекты -->
                 <?php if ($image = get_field('index_promo_bg')) { ?>
@@ -263,71 +338,8 @@
                 </div>
             </div>
         </div>
-        <!-- Попапы Услуги -->
-        <?php
-        if ($rows = get_field('index_service_slide')) {
-            $slide_id = $first_service_slide_id;
-            $row_count = count($rows);
-            while (have_rows('index_service_slide')) {
-                the_row();
-                $slide_slug = strtolower(get_sub_field('index_service_slide_title'));
-                ?>
-                <div data-id="<?= $slide_id; ?>"
-                     class="popup popup<?= $slide_id; ?> popup_<?= $slide_slug ?>">
-                    <div class="popup__inner_services">
-                        <div class="slide slide_<?= $slide_slug ?>">
-                            <span class="btn btn_close popup_close"></span>
-                            <div class="popup-block">
-                                <h2 class="slide__header"><?php get_sub_field('index_service_slide_title'); ?></h2>
-                                <div class="slide__features clearfix">
-                                    <?php
-                                    while (have_rows('index_service_slide_block')) {
-                                        the_row();
-                                        ?>
-                                        <div class="feature">
-                                            <div class="feature__img">
-                                                <?php
-                                                if ($svg = get_sub_field('index_partners_slide_client_svg')) {
-                                                    echo $svg;
-                                                }
-                                                ?>
-                                            </div>
-                                            <h3 class="feature__title"><?php the_sub_field('index_service_slide_block_text'); ?></h3>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                                <div class="slide__btns">
-                                    <?php
-                                    if ($slide_id > $first_service_slide_id) {
-                                        $previous_slide_id = $slide_id - 1;
-                                        $previous_slide_title = $rows[$previous_slide_id - $first_service_slide_id]['index_service_slide_title'];
-                                        $previous_slide_slug = strtolower($previous_slide_title);
-                                        ?>
-                                        <a href="#services/<?= $previous_slide_slug; ?>"
-                                           class="btn btn_previous popup_open"
-                                           data-popup-id="<?= $previous_slide_id; ?>"><?= $previous_slide_title; ?></a>
-                                    <?php }
-                                    if ($slide_id < $first_service_slide_id - 1 + $row_count) {
-                                        $next_slide_id = $slide_id + 1;
-                                        $next_slide_title = $rows[$next_slide_id - $first_service_slide_id]['index_service_slide_title'];
-                                        $next_slide_slug = strtolower($next_slide_title);
-                                        ?>
-                                        <a href="#services/<?= $next_slide_slug; ?>"
-                                           class="btn btn_next popup_open"
-                                           data-popup-id="<?= $next_slide_id; ?>"><?= $next_slide_title; ?></a>
-                                    <?php } ?>
-                                    <span class="btn btn_blue popup_open" data-popup-id='2'>Оставить заявку на услугу</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php $slide_id++; ?>
-            <?php } ?>
-        <?php } ?>
     </div>
     <!-- Скрипты -->
-    <?php $assets_dir = get_assets_dir(); ?>
     <script src="<?= $assets_dir; ?>/js/jquery.min.js"></script>
     <script src="<?= $assets_dir; ?>/js/scripts.js"></script>
     <script src="<?= $assets_dir; ?>/js/jquery.fullPage.js"></script>

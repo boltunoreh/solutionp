@@ -24,7 +24,5 @@
         });
     </script>
     <![endif]-->
-    <!-- WP_HEAD -->
-    <?php wp_head() ?>
 </head>
 <body>

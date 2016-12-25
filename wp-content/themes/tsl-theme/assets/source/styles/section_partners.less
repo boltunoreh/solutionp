@@ -4,10 +4,9 @@
 
 .section_partners {
     background-color: #468cd4;
-    color: @white;
 }
-
 .section_partners .section__header {
+    display: none;
 }
 .partners {
     max-width: 700px;
@@ -55,17 +54,18 @@
 }
 
 @media @mobile {
-    .partners {
-        max-width: 450px;
-        padding-top: 10px;
-    }
-    .partner {width: 49%;
-    }
-}
-
-@media @pre-tablet {
-    .section_partners .section__header {
-
+    .section_partners {
+        .section__header {
+            display: block;
+        }
+        .partners {
+            max-width: 450px;
+            margin-top: 20px;
+            padding: 0;
+        }
+        .partner {
+            width: 49%;
+        }
     }
 }
 

@@ -4,14 +4,16 @@
 
 .section_clients {
     background-color: @bg;
-    // color: @white;
+    min-height: 600px;
 }
 .section_clients .section__header {
+    display: none;
 }
 .clients {
     max-width: 700px;
     padding: 20px 0;
     margin: 0 auto;
+    margin-top: 80px;
 }
 .client {
     display: inline-block;
@@ -55,12 +57,18 @@
 }
 
 @media @mobile {
-    .clients {
-        max-width: 450px;
-        padding-top: 10px;
-    }
-    .client {
-        width: 49%;
+    .section_clients {
+        .section__header {
+            display: block;
+        }
+        .clients {
+            max-width: 450px;
+            margin-top: 20px;
+            padding: 0;
+        }
+        .client {
+            width: 49%;
+        }
     }
 }
 

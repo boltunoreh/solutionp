@@ -10,7 +10,6 @@
     position: relative;
     min-height: 420px;
     overflow: hidden;
-    background-color: rgba(14,51,60,0.9);
 }
 .popup__menu-item {
     margin-bottom: 20px;
@@ -45,6 +44,10 @@
 }
 
 @media @mobile {
+    .popup_menu .btn {
+        float: none;
+        max-width: 280px;
+    }
     .popup_menu .btn_blue {
         margin-top: 0;
     }

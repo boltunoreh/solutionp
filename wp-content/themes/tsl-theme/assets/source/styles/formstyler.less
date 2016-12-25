@@ -507,11 +507,11 @@
 }
 
 .input {
-    width: 420px;
-    min-width: 320px;
+    width: 300px;
+    // min-width: 320px;
     height: 40px;
     border: 1px solid rgba(0, 187, 210, 0.4);
-    display: inline-block;
+    // display: inline-block;
     margin: 10px 0
 }
 .input input {
@@ -539,21 +539,22 @@
 }
 
 .textarea {
-    width: 420px;
+	display: inline-block;
+    width: 300px;
     height: 76px;
-    border: 1px solid rgba(0, 187, 210, 0.4);
-    display: inline-block;
-    margin: 10px 0
+    margin: 10px 0;
+	overflow: hidden;
+	border: 1px solid rgba(0, 187, 210, 0.4);
 }
 .textarea textarea {
+	position: relative;
     width: 100%;
     height: 100%;
+	resize: none;
     padding-left: 20px;
-    resize: none;
-    padding-top: 5px;
+	padding-top: 10px;
     font: 16px 'FuturaDemiC-Regular', sans-serif;
     z-index: 1;
-    position: relative
 }
 .textarea .wpcf7-not-valid-tip:before {
     position: absolute;
