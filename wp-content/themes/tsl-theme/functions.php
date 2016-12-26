@@ -65,9 +65,10 @@ function tsl_wp_header(){
 /////////////////////////////////////// Подключаем js-скрипты ///////////////////////////////////////
 add_action('wp_enqueue_scripts', 'tsl_enqueue_fe_scripts');
 function tsl_enqueue_fe_scripts() {
-	wp_enqueue_script('jquery.min', tmpl_js.'jquery.min.js',false,'4.3', true);
+	wp_enqueue_script('jquery.min', tmpl_js.'jquery.min.js');
 	wp_localize_script('jquery.min', 'myajax', array('url' => admin_url('admin-ajax.php'))); //установка глобальной переменной javascript — ajaxurl для использования ее во фронтэнде
-	wp_enqueue_script('scripts', tmpl_js.'scripts.js',false,'4.3', true);
+	wp_enqueue_script('scripts', tmpl_js.'scripts.js');
+	wp_enqueue_script('fullscreen', tmpl_js.'jquery.fullPage.js');
 	wp_enqueue_script('googlemap', 'https://maps.googleapis.com/maps/api/js');
 }
 

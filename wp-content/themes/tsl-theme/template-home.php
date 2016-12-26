@@ -1,6 +1,5 @@
 <?php /* Template Name: Главная страница */ ?>
 <?php get_header(); ?>
-<?php $assets_dir = get_assets_dir(); ?>
     <div class="wrapper">
         <!-- Хедер -->
         <header class="header">
@@ -11,32 +10,33 @@
                     <?php if ($image = get_field('logo', 'option')) { ?>
                         <img src="<?php echo $image['url']; ?>" alt="Solution-P logotype" class="logo__img_header">
                     <?php } ?>
-                    <!-- Меню -->
-                    <div class="header__menu">
-                        <ul id="menu" class="menu">
-                            <li class="menu__item active" data-menuanchor="services">
-                                <a href="#services" class="menu__link">Услуги</a>
-                            </li>
-                            <li class="menu__item" data-menuanchor="projects">
-                                <a href="#projects" class="menu__link">Проекты</a>
-                            </li>
-                            <li class="menu__item" data-menuanchor="clients">
-                                <a href="#clients" class="menu__link">Клиенты</a>
-                            </li>
-                            <li class="menu__item" data-menuanchor="partners">
-                                <a href="#partners" class="menu__link">Партнеры</a>
-                            </li>
-                            <li class="menu__item" data-menuanchor="contacts">
-                                <a href="#contacts" class="menu__link">Контакты</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="menu__btn popup_open" data-popup-id='1'>
-                        <i class="i_top"></i>
-                        <i class="i_center"></i>
-                        <i class="i_bottom"></i>
-                    </div>
-                    <div class="btn btn_header btn_blue popup_open" data-popup-id='2'>Связаться с нами</div>
+                </a>
+                <!-- Меню -->
+                <div class="header__menu">
+                    <ul id="menu" class="menu">
+                        <li class="menu__item active" data-menuanchor="services">
+                            <a href="#services" class="menu__link">Услуги</a>
+                        </li>
+                        <li class="menu__item" data-menuanchor="projects">
+                            <a href="#projects" class="menu__link">Проекты</a>
+                        </li>
+                        <li class="menu__item" data-menuanchor="clients">
+                            <a href="#clients" class="menu__link">Клиенты</a>
+                        </li>
+                        <li class="menu__item" data-menuanchor="partners">
+                            <a href="#partners" class="menu__link">Партнеры</a>
+                        </li>
+                        <li class="menu__item" data-menuanchor="contacts">
+                            <a href="#contacts" class="menu__link">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu__btn popup_open" data-popup-id='1'>
+                    <i class="i_top"></i>
+                    <i class="i_center"></i>
+                    <i class="i_bottom"></i>
+                </div>
+                <div class="btn btn_header btn_blue popup_open" data-popup-id='2'>Связаться с нами</div>
             </div>
         </header>
         <!-- Секции -->
@@ -61,7 +61,7 @@
                 </div>
                 <!-- Услуги -->
                 <?php
-                $first_service_slide_id = 1;
+                $first_service_slide_id = 2;
                 if (!$image = get_field('index_service_background')) {
                     $image['url'] = null;
                 }
@@ -112,8 +112,12 @@
                             the_row();
                             $slide_title = get_sub_field('index_service_slide_title');
                             $slide_slug = strtolower($slide_title);
+                            $slide_bg_url = '';
+                            if ($slide_bg = get_sub_field('index_service_slide_background')) {
+                                $slide_bg_url = $slide_bg['url'];
+                            }
                             ?>
-                            <div id="slide<?= $slide_id; ?>" class="slide slide_<?= $slide_id; ?>" data-anchor="<?= $slide_slug; ?>" style="background-image: url(./img/bg_production.jpg);">
+                            <div id="slide<?= $slide_id; ?>" class="slide slide_<?= $slide_id; ?>" data-anchor="<?= $slide_slug; ?>" style="background-image: url(<?= $slide_bg_url; ?>);">
                                 <div class="section__inner">
                                     <h2 class="section__header"><?= $slide_title ?></h2>
                                     <div class="features">
@@ -339,59 +343,4 @@
             </div>
         </div>
     </div>
-    <!-- Скрипты -->
-    <script src="<?= $assets_dir; ?>/js/jquery.min.js"></script>
-    <script src="<?= $assets_dir; ?>/js/scripts.js"></script>
-    <script src="<?= $assets_dir; ?>/js/jquery.fullPage.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ0PT-P1EWEpIGfPeDHhgjfOWWe47I56g"></script>
-    <script>
-        function initialize() {
-            var myLatLng = {
-                <?php
-                if (!$lat = get_field('index_map_lat')) {
-                    $lat = 55.750023;
-                }
-                ?>
-                lat: <?= $lat; ?>,
-
-                <?php
-                if (!$lng = get_field('index_map_lng')) {
-                    $lng = 55.750023;
-                }
-                ?>
-                lng: <?= $lng; ?>
-            };
-            // Create a map object and specify the DOM element for display
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: myLatLng,
-                scrollwheel: false,
-                zoom: 15
-            });
-            // Create a bubble for marker
-            var infowindow = new google.maps.InfoWindow({
-                <?php
-                if (!$content = get_field('index_map_text')) {
-                    $content = '';
-                }
-                ?>
-                content: '<span style="color:black;"><?= $content; ?></span>'
-            });
-            // Create a marker and set its position
-            var marker = new google.maps.Marker({
-                map: map,
-                position: myLatLng,
-                icon: '<?= $assets_dir; ?>/img/map-marker.svg',
-                <?php
-                if (!$title = get_field('index_map_title')) {
-                    $title = '';
-                }
-                ?>
-                title: '<?= $title; ?>'
-            });
-            marker.addListener('click', function() {
-                infowindow.open(map, marker);
-            });
-        }
-        google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
 <? get_footer(); ?>
