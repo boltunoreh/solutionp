@@ -36,7 +36,7 @@
                         <i class="i_center"></i>
                         <i class="i_bottom"></i>
                     </div>
-                    <div class="btn btn_header btn_blue popup_open" data-popup-id='2'>Связаться</div>
+                    <div class="btn btn_header btn_blue popup_open" data-popup-id='2'>Связаться с нами</div>
             </div>
         </header>
         <!-- Секции -->
@@ -89,7 +89,7 @@
                                         <a href="#services/<?= $sub_slide_slug; ?>" class="service service_link">
                                             <div class="service__img">
                                                 <?php
-                                                if ($svg = get_sub_field('index_partners_slide_client_svg')) {
+                                                if ($svg = get_sub_field('index_service_slide_svg')) {
                                                     echo $svg;
                                                 }
                                                 ?>
@@ -124,7 +124,7 @@
                                             <div class="feature">
                                                 <div class="feature__img">
                                                     <?php
-                                                    if ($svg = get_sub_field('index_partners_slide_client_svg')) {
+                                                    if ($svg = get_sub_field('index_service_slide_block_svg')) {
                                                         echo $svg;
                                                     }
                                                     ?>
@@ -219,30 +219,28 @@
                 <!-- Партнеры -->
                 <div id="section5" class="section section_partners">
                     <div class="section__inner">
-                        <div class="section__inner">
-                            <h2 class="section__header">Наши партнеры</h2>
-                            <div class="partners">
-                                <?php
-                                while (have_rows('index_partners_slide')) {
+                        <h2 class="section__header">Наши партнеры</h2>
+                        <div class="partners">
+                            <?php
+                            while (have_rows('index_partners_slide')) {
+                                the_row();
+                                while (have_rows('index_partners_slide_client')) {
                                     the_row();
-                                    while (have_rows('index_partners_slide_client')) {
-                                        the_row();
-                                        ?>
-                                        <div class="partner">
-                                            <div class="partner__img">
-                                                <?php if ($image = get_sub_field('index_partners_slide_client_img')) { ?>
-                                                    <img class="img_white" src="<?php echo $image['url']; ?>">
-                                                <?php } ?>
-                                                <span class="partner__img_hover">
-                                            <?php if ($image = get_sub_field('index_partners_slide_client_img_h')) { ?>
-                                                <img class="img_color" src="<?php echo $image['url']; ?>">
+                                    ?>
+                                    <div class="partner">
+                                        <div class="partner__img">
+                                            <?php if ($image = get_sub_field('index_partners_slide_client_img')) { ?>
+                                                <img class="img_white" src="<?php echo $image['url']; ?>">
                                             <?php } ?>
-                                        </span>
-                                            </div>
+                                            <span class="partner__img_hover">
+                                        <?php if ($image = get_sub_field('index_partners_slide_client_img_h')) { ?>
+                                            <img class="img_color" src="<?php echo $image['url']; ?>">
+                                        <?php } ?>
+                                    </span>
                                         </div>
-                                    <?php } ?>
+                                    </div>
                                 <?php } ?>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -252,17 +250,19 @@
                         <div class="contacts__block">
                             <h2 class="section__header">Контакты</h2>
                             <span class="contact address">
-                            Москва, Багратионовский проезд, д. 7
-                        </span>
+                                <? the_field('address', 'option'); ?>
+                            </span>
                             <span class="contact telephone">
-                            +7 495 540-47-97
-                        </span>
+                                <? the_field('phone', 'option'); ?>
+                            </span>
                             <span class="contact email">
-                            <a href="mailto:info@solutionp.ru">info@solutionp.ru</a>
-                        </span>
-                            <span class="contact soc-icon fb"></span>
-                            <span class="contact soc-icon inst"></span>
-                            <span class="contact soc-icon twit"></span>
+                                <a href="mailto:<? the_field('mail', 'option'); ?>"><? the_field('mail', 'option'); ?></a>
+                            </span>
+                            <div class="contact">
+                                <a href="<? the_field('facebook', 'option'); ?>" target="_blank" class="soc-icon fb"></a>
+                                <a href="<? the_field('instagram', 'option'); ?>" target="_blank" class="soc-icon inst"></a>
+                                <a href="<? the_field('twitter', 'option'); ?>" target="_blank" class="soc-icon twit"></a>
+                            </div>
                         </div>
                     </div>
                     <div id="map" class="map"></div>
@@ -347,8 +347,19 @@
     <script>
         function initialize() {
             var myLatLng = {
-                lat: 55.742036,
-                lng: 37.503581
+                <?php
+                if (!$lat = get_field('index_map_lat')) {
+                    $lat = 55.750023;
+                }
+                ?>
+                lat: <?= $lat; ?>,
+
+                <?php
+                if (!$lng = get_field('index_map_lng')) {
+                    $lng = 55.750023;
+                }
+                ?>
+                lng: <?= $lng; ?>
             };
             // Create a map object and specify the DOM element for display
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -356,12 +367,29 @@
                 scrollwheel: false,
                 zoom: 15
             });
+            // Create a bubble for marker
+            var infowindow = new google.maps.InfoWindow({
+                <?php
+                if (!$content = get_field('index_map_text')) {
+                    $content = '';
+                }
+                ?>
+                content: '<span style="color:black;"><?= $content; ?></span>'
+            });
             // Create a marker and set its position
             var marker = new google.maps.Marker({
                 map: map,
                 position: myLatLng,
-                icon: '<?= get_assets_dir(); ?>/img/map-marker.svg',
-                title: 'Solution P<br>Москва, Багратионовский проезд д. 7, +7 (495) 540-47-97'
+                icon: '<?= $assets_dir; ?>/img/map-marker.svg',
+                <?php
+                if (!$title = get_field('index_map_title')) {
+                    $title = '';
+                }
+                ?>
+                title: '<?= $title; ?>'
+            });
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
             });
         }
         google.maps.event.addDomListener(window, 'load', initialize);
