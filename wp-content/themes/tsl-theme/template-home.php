@@ -262,10 +262,10 @@
                             <span class="contact email">
                                 <a href="mailto:<? the_field('mail', 'option'); ?>"><? the_field('mail', 'option'); ?></a>
                             </span>
-                            <div class="contact">
-                                <a href="<? the_field('facebook', 'option'); ?>" target="_blank" class="soc-icon fb"></a>
-                                <a href="<? the_field('instagram', 'option'); ?>" target="_blank" class="soc-icon inst"></a>
-                                <a href="<? the_field('twitter', 'option'); ?>" target="_blank" class="soc-icon twit"></a>
+                            <div class="popup__social social">
+                                <a href="<? the_field('facebook', 'option'); ?>" target="_blank" class="social__item social__item_fb-p"></a>
+                                <a href="<? the_field('instagram', 'option'); ?>" target="_blank" class="social__item social__item_insta-p"></a>
+                                <a href="<? the_field('twitter', 'option'); ?>" target="_blank" class="social__item social__item_tw-p"></a>
                             </div>
                         </div>
                     </div>
@@ -336,9 +336,9 @@
                     </a>
                 </div>
                 <div class="popup__social social">
-                    <a href="#" class="social__item social__item_fb-p"></a>
-                    <a href="#" class="social__item social__item_insta-p"></a>
-                    <a href="#" class="social__item social__item_tw-p"></a>
+                    <a href="<? the_field('facebook', 'option'); ?>" target="_blank" class="social__item social__item_fb-p"></a>
+                    <a href="<? the_field('instagram', 'option'); ?>" target="_blank" class="social__item social__item_insta-p"></a>
+                    <a href="<? the_field('twitter', 'option'); ?>" target="_blank" class="social__item social__item_tw-p"></a>
                 </div>
             </div>
         </div>
