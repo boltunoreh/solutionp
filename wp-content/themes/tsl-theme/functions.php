@@ -53,13 +53,17 @@ require_once(tmpl_ajax . 'ajax.counter.php');
 add_action('wp_enqueue_scripts','tsl_enqueue_fe_styles');
 function tsl_enqueue_fe_styles() {
 	wp_enqueue_style('css-general', tmpl_css.'style.css');
-	//wp_enqueue_style('css-fonts', tmpl_css.'fonts.css');
+	wp_enqueue_style('css-fullscreen', tmpl_css.'jquery.fullPage.css');
+	wp_enqueue_style('css-fonts', tmpl_css.'fonts.css');
 }
 
 ///////////////////////////////////////Все, что хотим добавить в Header///////////////////////////
 add_action('wp_head', 'tsl_wp_header');
 function tsl_wp_header(){
-	echo 	'<link rel="Shortcut Icon" href="'.tmpl_dir.'favicon.ico" type="image/x-icon" />';
+	echo '<link rel="Shortcut Icon" href="'.tmpl_dir.'favicon.ico" type="image/x-icon" />';
+	echo '<link rel="icon" type="image/png" href="'.tmpl_img.'favicon-32x32.png" sizes="32x32"/>';
+	echo '<link rel="icon" type="image/png" href="'.tmpl_img.'favicon-16x16.png" sizes="16x16"/>';
+	echo '<link rel="apple-touch-icon-precomposed" sizes="152x152" href="'.tmpl_img.'apple-touch-icon-152x152.png"/>';
 }
 
 /////////////////////////////////////// Подключаем js-скрипты ///////////////////////////////////////

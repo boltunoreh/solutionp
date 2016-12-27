@@ -278,7 +278,7 @@
             <div class="popup__inner">
                 <div class="popup__menu-item">
                     <a href="#intro" class="logo_header">
-                        <img src="<?= get_assets_dir(); ?>/img/logo.png" alt="Solution-P logotype" class="logo__img_header"></a>
+                        <img src="<?= tmpl_img; ?>logo.png" alt="Solution-P logotype" class="logo__img_header"></a>
                 </div>
                 <div class="popup__menu-item">
                     <a href="#services" class="menu__link popup_close">Наши услуги</a>

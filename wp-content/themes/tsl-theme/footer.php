@@ -1,5 +1,4 @@
         <!-- Скрипты -->
-        <?php $assets_dir = get_assets_dir(); ?>
         <script>
             function initialize() {
                 <?php
@@ -15,7 +14,7 @@
                 ?>
                 var lng = <?= $lng ?>;
 
-                var icon = '<?= $assets_dir; ?>/img/map-marker.svg';
+                var icon = '<?= tmpl_img; ?>map-marker.svg';
                 <?php
                 if (!$title = get_field('index_map_title')) {
                     $title = '';
