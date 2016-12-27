@@ -8,11 +8,6 @@ define("tmpl_inc", get_template_directory() . '/include/');
 define("tmpl_ajax", get_template_directory() . '/ajax/');
 define("tmpl_class", get_template_directory() . '/classes/');
 
-
-
-
-
-
 /////////////////////////////////////// Подключаем дополнительные функции ///////////////////////////////////////
 // Функции темы
 require_once(tmpl_inc . 'theme-functions.php');
@@ -54,7 +49,6 @@ add_action('wp_enqueue_scripts','tsl_enqueue_fe_styles');
 function tsl_enqueue_fe_styles() {
 	wp_enqueue_style('css-general', tmpl_css.'style.css');
 	wp_enqueue_style('css-fullscreen', tmpl_css.'jquery.fullPage.css');
-	wp_enqueue_style('css-fonts', tmpl_css.'fonts.css');
 }
 
 ///////////////////////////////////////Все, что хотим добавить в Header///////////////////////////
