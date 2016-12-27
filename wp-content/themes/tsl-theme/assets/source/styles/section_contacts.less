@@ -1,9 +1,11 @@
 // main: ../less/main.less
+
 /*  S T A R T  O F  section_contacts.less  */
 
-// .section_contacts {
-//     min-height: 550px;
-// }
+
+.section_contacts {
+    // min-height: 550px;
+}
 
 .contacts__block {
     position: relative;
@@ -16,7 +18,7 @@
     color: @white;
     text-align: left;
     background-color: @main;
-    .opacity (0.8);
+    .opacity (0.9);
     z-index: 100;
 }
 .contacts__block .section__header {
@@ -57,6 +59,26 @@
     border-bottom: 2px solid @white;
     &:hover {
         border-bottom: 2px solid transparent;
+    }
+}
+
+.section_contacts {
+    .social__item_fb-p {
+        background-image: url(../img/icon-fb_wht.svg);
+    }
+    .social__item_insta-p {
+        background-image: url(../img/icon-inst_wht.svg);
+    }
+    .social__item_tw-p {
+        background-image: url(../img/icon-tw_wht.svg);
+    }
+}
+.section_contacts {
+    .social__item_fb-p:hover,
+    .social__item_insta-p:hover,
+    .social__item_tw-p:hover {
+        .opacity (0.8);
+        .transition (all 0.3);
     }
 }
 
