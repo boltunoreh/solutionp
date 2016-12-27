@@ -54,7 +54,7 @@ h2 {
 }
 
 .popup {
-    visibility: hidden;
+    display: none;
     position: fixed;
     top: 0px;
     width: 100%;
@@ -65,7 +65,7 @@ h2 {
     .transition (all 0.3s);
 }
 .active {
-    visibility: visible;
+    display: block;
 }
 .popup__inner {
     height: 100%;
@@ -201,9 +201,6 @@ div.wpcf7-mail-sent-ok {
 div.wpcf7 img.ajax-loader {
 	margin-top: 32px;
 }
-#map p {
-	color: #000;
-}
 
 .loader {
 	position: fixed;
@@ -211,23 +208,23 @@ div.wpcf7 img.ajax-loader {
     height: 100%;
     z-index: 500;
     background: #fff;
-    &--hidden {
+    &_hidden {
     	display: none;
     }
 	&:before{
 		content:'';
-		width:50px;
-		height:50px;
-		border-radius:50%;
-		box-sizing:border-box;
-		border:solid 3px transparent;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -15px 0 0 -15px;
+		width: 50px;
+		height: 50px;
+        box-sizing: border-box;
+        border: solid 3px transparent;
+		border-radius: 50%;
 		border-top-color: @blue;
-		-webkit-animation:spin 1s infinite linear;
-		animation:spin 1s infinite linear;
-		position:absolute;
-		top:50%;
-		left:50%;
-		margin:-15px 0 0 -15px
+		-webkit-animation: spin 1s infinite linear;
+		animation: spin 1s infinite linear;
 	}
 }
 @keyframes spin {

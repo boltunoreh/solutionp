@@ -1,6 +1,7 @@
 <?php /* Template Name: Главная страница */ ?>
 <?php get_header(); ?>
     <div class="wrapper">
+        <div class="loader"></div>
         <!-- Хедер -->
         <header class="header">
             <div class="header_gradient"></div>
