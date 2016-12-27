@@ -1,7 +1,7 @@
         <!-- Скрипты -->
         <?php $assets_dir = get_assets_dir(); ?>
         <script>
-            function initialize() {
+            function initMap() {
                 var myLatLng = {
                     <?php
                     if (!$lat = get_field('index_map_lat')) {
@@ -48,7 +48,7 @@
                     infowindow.open(map, marker);
                 });
             }
-            google.maps.event.addDomListener(window, 'load', initialize);
+            google.maps.event.addDomListener(window, 'load', initMap);
         </script>
         <?php wp_footer(); ?>
     </body>

@@ -187,26 +187,6 @@ $(function() {
         return b > 0 ? (e = $("body").find(".navigation__pin--current").index() - 1, 0 > e && (e = 0)) : (e = $("body").find(".navigation__pin--current").index() + 1, e > g && (e = g)), f = $("body").find(".navigation__pin").eq(e), mainSlider(f, e), !1
     }
 
-    function initMap() {
-        $("#map").length && (map = new GMaps({
-            div: "#map",
-            lat: gmlat,
-            lng: gmlng,
-            zoom: 13,
-            height: "100%",
-            scrollwheel: !1,
-            zoomControl: !1,
-            mapTypeControl: !1
-        }), map.addMarker({
-            lat: gmlat,
-            lng: gmlng,
-            title: gmtitle,
-            icon: gmicon,
-            infoWindow: {
-                content: gmcontent
-            }
-        }))
-    }
 
     function stickyFooter() {
         var a = $(".footer");
