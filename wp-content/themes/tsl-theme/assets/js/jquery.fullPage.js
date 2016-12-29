@@ -163,7 +163,7 @@
             fixedElements: null,
             responsive: 0, //backwards compabitility with responsiveWiddth
             responsiveWidth: 0,
-            responsiveHeight: 650,
+            responsiveHeight: 640,
             responsiveSlides: false,
 
             //Custom selectors
@@ -190,7 +190,7 @@
         var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.maxTouchPoints));
         var container = $(this);
         var windowsHeight = $window.height();
-        var isResizing = false;
+        var isResizing = true;
         var isWindowFocused = true;
         var lastScrolledDestiny;
         var lastScrolledSlide;
