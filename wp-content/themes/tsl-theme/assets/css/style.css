@@ -3144,6 +3144,9 @@ input[type='submit'].styler[disabled] {
   .textarea textarea {
     width: 240px;
   }
+  .jq-selectbox__dropdown {
+    width: 280px;
+  }
 }
 /*  E N D  O F  formstyler.less  */
 /*  S T A R T  O F  jscrollpane.less  */

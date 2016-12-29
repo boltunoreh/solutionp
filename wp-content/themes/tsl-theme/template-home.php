@@ -306,7 +306,7 @@
             </div>
         </div>
         <!-- Попап Связаться / Заказать звонок -->
-        <div data-id="2" class="popup popup2 popup_contacts active">
+        <div data-id="2" class="popup popup2 popup_contacts">
             <div class="popup__inner">
                 <span class="btn btn_close popup_close"></span>
                 <h3 class="popup_header">
