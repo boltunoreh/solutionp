@@ -329,10 +329,10 @@
                     </div>
                 </div>
                 <div class="popup__contacts contacts">
-                    <div class="contacts__item contacts__item--phone contacts__item--phone-popup">
+                    <div class="contacts__item contacts__item_phone contacts__item_phone-popup">
                         <? the_field('phone', 'option'); ?>
                     </div>
-                    <a href="mailto:info@solutionp.ru" class="contacts__item contacts__item--mail contacts__item--mail-popup">
+                    <a href="mailto:info@solutionp.ru" class="contacts__item contacts__item_mail contacts__item_mail-popup">
                         <? the_field('mail', 'option'); ?>
                     </a>
                 </div>
