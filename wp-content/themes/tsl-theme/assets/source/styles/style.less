@@ -77,7 +77,9 @@ h2 {
 }
 .popup-block {
     display: inline-block;
+    width: 420px;
     color: @white;
+    text-align: left;
 }
 
 .row() {
@@ -236,18 +238,20 @@ div.wpcf7 img.ajax-loader {
 .btns {
     display: block;
     max-width: 650px;
+    max-width: 780px;
     margin: 0 auto;
 }
 .btn {
     float: left;
     box-sizing: border-box;
     height: 40px;
-    margin: 0 auto;
-    padding: 10px;
+    margin: 0 10px;
+    padding: 0 25px;
+    background-repeat: no-repeat;
     color: @white;
     .font_header;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 40px;
     text-transform: uppercase;
     border: 1px solid @white;
     border-radius: 2px;
@@ -265,6 +269,7 @@ div.wpcf7 img.ajax-loader {
 }
 .btn_prev {
     margin-left: 0px;
+    padding: 0px 10px;
     &::before {
         content: '';
         display: inline-block;
@@ -283,6 +288,7 @@ div.wpcf7 img.ajax-loader {
 }
 .btn_next {
     float: right;
+    padding: 0px 10px;
     margin-right: 0px;
     &::after {
         content: '';
@@ -301,7 +307,6 @@ div.wpcf7 img.ajax-loader {
 .btn_blue {
     float: none;
     display: inline-block;
-    // min-width: 210px;
     border: 1px solid @main;
     background-color: @main;
     &:hover {
@@ -315,9 +320,9 @@ div.wpcf7 img.ajax-loader {
 }
 .btn_white {
     float: none;
+    display: block;
 }
 .btn_close {
-    // position: absolute;
     content: '';
     display: block;
     top: 25px;
@@ -358,8 +363,13 @@ div.wpcf7 img.ajax-loader {
     }
     .btns {
         display: inline-block;
+        max-width: 360px;
     }
-    .btn_blue {
+    .btn {
+        margin: 0;
+    }
+    .btn_blue,
+    .btn_white {
         width: 100%;
     }
     .btn_prev,
@@ -367,11 +377,30 @@ div.wpcf7 img.ajax-loader {
         width: 48%;
         margin: 10px auto 0;
     }
+    .popup-block {
+        width: 280px;
+    }
 }
 
 @media @pre-tablet {
     .section__desc {
         max-width: 500px;
+    }
+    .btns {
+        display: inline-block;
+        max-width: 360px;
+    }
+    .btn {
+        margin: 0;
+    }
+    .btn_blue,
+    .btn_white {
+        width: 100%;
+    }
+    .btn_prev,
+    .btn_next {
+        width: 48%;
+        margin: 10px auto 0;
     }
 }
 

@@ -4,23 +4,25 @@
 
 
 .section_services {
-    min-height: 650px;
-}
-.section_services .section__inner {
-    max-width: 800px;
+    min-height: 640px;
 }
 .section_services .section__header {
-    margin-top: 50px;
+    margin-top: -50px;
     padding: 20px;
     font-size: 34px;
     .font_header;
 }
 .section_services .section__desc {
+    max-width: 820px;
     padding-top: 10px;
 }
 
+.section_services .btn_white {
+    margin: 0 auto;
+}
 .services {
     margin: 0 auto;
+    margin-bottom: 40px;
     padding-bottom: 25px;
     overflow: hidden;
 }
@@ -55,7 +57,7 @@
     width: 80px;
     height: 80px;
     margin: 0 auto;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     fill: #ffffff;
     border-radius: 100%;
     border: 1px solid @white;
@@ -88,12 +90,12 @@
     }
 }
 
-
 .slide_services .btn {
     float: right;
+    margin-bottom: 10px;
 }
 .section_services .section__inner .btn_white {
-    // max-width: 280px;
+    max-width: 360px;
     &::after {
         content: '';
         display: inline-block;
@@ -113,6 +115,10 @@
     .section_services {
         .section__header {
             margin-top: 20px;
+            padding: 0;
+        }
+        .section__desc {
+            max-width: 580px;
         }
         .service__block {
             width: 50%;
@@ -121,6 +127,39 @@
         .services {
             max-width: 400px;
             padding-bottom: 0;
+            margin-bottom: 20px;
+        }
+        .service__img {
+            margin-bottom: 10px;
+        }
+        .btn_white {
+            max-width: 360px;
+        }
+    }
+}
+@media @pre-tablet {
+    .section_services {
+        .section__header {
+            margin-top: -10px;
+        }
+        .services {
+            margin-bottom: 20px;
+        }
+        .btn_white {
+            max-width: 360px;
+        }
+    }
+}
+@media @tablet {
+    .section_services {
+        .section__header {
+            margin-top: -10px;
+        }
+        .services {
+            margin-bottom: 20px;
+        }
+        .btn_white {
+            max-width: 360px;
         }
     }
 }

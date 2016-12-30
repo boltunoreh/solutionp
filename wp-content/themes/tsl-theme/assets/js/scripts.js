@@ -7,13 +7,13 @@ $(document).ready(setTimeout(function() {
 
 $(document).ready(function() {
 
-    // Навигация по слайдам
+// Навигация по слайдам
     $('#fullpage').fullpage({
         menu: '#menu',
         anchors: ['intro', 'services', 'projects', 'clients', 'partners', 'contacts'],
     });
 
-    // Открытие попапов
+// Открытие попапов
     var btn = $('.popup_open');
     btn.on('click', function() {
         var popup = $('body').find('.popup'),
@@ -30,7 +30,7 @@ $(document).ready(function() {
         }
     }),
 
-    // Закрытие попапов
+// Закрытие попапов
     $('body').find('.popup_close').on('click', function() {
         $('body').find('.popup').removeClass('active')
     }),
@@ -49,7 +49,7 @@ $(document).ready(function() {
         showMaskOnHover: false
     }),
 
-    // Переключатель в форме Связаться
+// Переключатель в форме Связаться
     $('body').find('.switch').on('click', function() {
         var $switcher = $(this).find('.switch__item'),
         $titleLeft = $(this).parent().find('.switch-title_left'),

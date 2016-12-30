@@ -332,7 +332,7 @@
                     <div class="contacts__item contacts__item--phone contacts__item--phone-popup">
                         <? the_field('phone', 'option'); ?>
                     </div>
-                    <a href="mailto:<? the_field('mail', 'option'); ?>" class="contacts__item contacts__item--mail contacts__item--mail-popup">
+                    <a href="mailto:info@solutionp.ru" class="contacts__item contacts__item--mail contacts__item--mail-popup">
                         <? the_field('mail', 'option'); ?>
                     </a>
                 </div>

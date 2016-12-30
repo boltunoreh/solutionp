@@ -48,6 +48,10 @@
 .address::before {
     background-image: url(../img/icon_map.svg);
 }
+.telephone a[href^="tel"] {
+    color: @white;
+    text-decoration: none;
+}
 .telephone::before {
     background-image: url(../img/icon_phone.svg);
 }
@@ -88,6 +92,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 90;
 }
 
 
