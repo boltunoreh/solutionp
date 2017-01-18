@@ -265,3 +265,9 @@ html.fp-enabled,
 .fp-responsive .fp-auto-height-responsive .fp-tableCell {
     height: auto !important;
 }
+
+@media only screen and (min-width: 320px) and (max-width: 699px) {
+    .fp-slidesNav{
+        display: none;
+    }
+}

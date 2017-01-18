@@ -197,7 +197,6 @@
     line-height: 45px;
     border-right: 1px solid #00bbd2;
     text-decoration: none;
-    // padding-right: 50px;
 }
 .contacts__item_phone-popup::after {
     background: url('../img/icon-phone_blue.svg') no-repeat;
@@ -223,7 +222,6 @@
 }
 .contacts__item_mail-popup {
     color: #00bbd2;
-    // margin-left: 50px;
     font: 21px 'FuturaDemiC-Regular', sans-serif;
     height: 45px;
     line-height: 45px;
@@ -237,7 +235,6 @@
 
 .popup__social {
     margin-top: 50px;
-    // padding-left: 20px !important;
 }
 .social {
     margin: 0;
@@ -275,21 +272,18 @@
     filter: alpha(opacity=80)
 }
 .social__item_fb {
-    // background-image: url('../img/fb.png');
     background-image: url('../img/icon-fb_blue.svg');
 }
 .social__item_fb::after {
     // background-image: url('../img/fb-h.png')
 }
 .social__item_insta {
-    // background-image: url('../img/inst.png');
     background-image: url('../img/icon-inst_blue.svg');
 }
 .social__item_insta::after {
     // background-image: url('../img/inst-h.png')
 }
 .social__item_tw {
-    // background-image: url('../img/tw.png');
     background-image: url('../img/icon-tw_blue.svg');
 }
 .social__item_tw::after {
@@ -298,7 +292,6 @@
 .social__item_fb-p {
     width: 30px;
     height: 30px;
-    // background-image: url('../img/fb-popup.png');
     background-image: url('../img/icon-fb_blue.svg');
 }
 .social__item_fb-p::after {
@@ -307,7 +300,6 @@
 .social__item_insta-p {
     width: 30px;
     height: 30px;
-    // background-image: url('../img/inst-popup.png');
     background-image: url('../img/icon-inst_blue.svg');
 }
 .social__item_insta-p::after {
@@ -316,11 +308,15 @@
 .social__item_tw-p {
     width: 30px;
     height: 30px;
-    // background-image: url('../img/tw-popup.png');
     background-image: url('../img/icon-tw_blue.svg');
 }
 .social__item_tw-p::after {
     // background-image: url('../img/tw-h.png');
+}
+
+.contacts__item_phone a[href^="tel"] {
+    color: @main;
+    text-decoration: none;
 }
 
 @media @mobile {
@@ -374,5 +370,6 @@
         margin-top: 50px;
     }
 }
+
 
 /*  E N D  O F  popup_contacts.less  */

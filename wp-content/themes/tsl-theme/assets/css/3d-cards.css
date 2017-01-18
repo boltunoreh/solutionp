@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.sec.two {
+  box-sizing: border-box;
+  background: #5f5f5f;
+}
+.wrapper {
+  width: 940px;
+  margin: 0 auto;
+  background: #5f5f5f;
+  overflow: hidden;
+}
+.example-1,
+.example-2,
+.example-3,
+.example-text {
+  text-align: center;
+  padding: 40px;
+  overflow: hidden;
+  border-top: 2px solid #999;
+  border-bottom: 2px solid #999;
+  perspective: 1200px;
+  margin-bottom: -2px;
+  color: #fff;
+}
+.example-3 {
+  margin-bottom: 0;
+}
+.example-text {
+  padding: 10px 100px 70px;
+  color: #9f9f9f;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+.subheader,
+.header {
+  margin: 10px 0;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 100;
+  color: #efefef;
+}
+.header {
+  margin-bottom: 50px;
+}
+.subheader {
+  margin-top: 40px;
+  display: block;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 1px;
+  color: #9f9f9f;
+}
+.first,
+.second,
+.third {
+  display: inline-block;
+  vertical-align: bottom;
+  position: relative;
+  bottom: 0px;
+  margin: 40px -80px 40px 20px;
+  padding: 20px;
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+  opacity: 0.8;
+  filter: drop-shadow(10px 10px 6px rgba(0, 0, 0, 0.2));
+  transform-origin: 0% 0% 0px;
+  transform: rotateX(-5deg) rotateY(-20deg);
+  -webkit-filter: drop-shadow(10px 10px 6px rgba(0, 0, 0, 0.2));
+  -webkit-transform-origin: 0% 0% 0px;
+  -webkit-transform: rotateX(-5deg) rotateY(-20deg);
+  transition: all 0.6s ease-in;
+}
+.first:hover,
+.second:hover,
+.third:hover {
+  filter: drop-shadow(20px 20px 10px rgba(0, 0, 0, 0.2));
+  transform: translate3d(-10px, -40px, 80px);
+  -webkit-filter: drop-shadow(20px 20px 10px rgba(0, 0, 0, 0.2));
+  -webkit-transform: translate3d(-10px, -40px, 80px);
+  transition: all 0.4s ease-out;
+  z-index: 200;
+  opacity: 1;
+}
+.first {
+  width: 115px;
+  height: 175px;
+  background: #0f5fff;
+  z-index: 5;
+  font-size: 0.9rem;
+}
+.second {
+  width: 180px;
+  height: 240px;
+  background: #ff5f0f;
+  z-index: 3;
+  font-size: 1.2rem;
+}
+.third {
+  width: 375px;
+  height: 300px;
+  margin-right: 0;
+  background: #4fff7f;
+  z-index: 1;
+  font-size: 1.6rem;
+}
+.fourth,
+.fifth {
+  display: inline-block;
+  vertical-align: bottom;
+  position: relative;
+  bottom: 0px;
+  margin: 20px -120px 60px 0px;
+  padding: 20px;
+  width: 150px;
+  height: 220px;
+  color: #fff;
+  text-align: left;
+  opacity: 0.8;
+  filter: drop-shadow(10px 10px 6px rgba(0, 0, 0, 0.2));
+  transform-origin: 0% 50% 0px;
+  transform: rotateX(0deg) rotateY(30deg) rotateZ(0deg);
+  -webkit-filter: drop-shadow(10px 10px 6px rgba(0, 0, 0, 0.2));
+  -webkit-transform-origin: 0% 50% 0px;
+  -webkit-transform: rotateX(0deg) rotateY(30deg) rotateZ(0deg);
+  transition: all 0.6s ease-in;
+}
+.fourth {
+  background: #0f5fff;
+  z-index: 3;
+  transform: rotateX(0deg) rotateY(30deg) rotateZ(0deg) translateY(30px);
+  -webkit-transform: rotateX(0deg) rotateY(30deg) rotateZ(0deg) translateY(30px);
+}
+.fifth {
+  background: #cf0f6f;
+  z-index: 10;
+}
+.example-1:hover {
+  background: #5f5f5f;
+  background: #595959;
+  transition: all 0.5s ease-in-out;
+}
+.example-2:hover {
+  cursor: pointer;
+  background: #595959;
+  transition: all 0.5s ease-in-out;
+}
+.example-2:hover > .fourth {
+  animation: zoom-out 2s forwards 1;
+  filter: drop-shadow(20px 20px 10px rgba(0, 0, 0, 0.2));
+  -webkit-animation: zoom-out 2s forwards 1;
+  -webkit-filter: drop-shadow(20px 20px 10px rgba(0, 0, 0, 0.2));
+}
+.example-2:hover > .fifth {
+  animation: zoom 2s forwards 1;
+  filter: drop-shadow(20px 20px 10px rgba(0, 0, 0, 0.2));
+  -webkit-animation: zoom 2s forwards 1;
+  -moz-animation: zoom 2s forwards 1;
+  -webkit-filter: drop-shadow(20px 20px 10px rgba(0, 0, 0, 0.2));
+}
+@-webkit-keyframes zoom {
+  50% {
+    transform: rotateX(0deg) rotateY(30deg) rotateZ(0deg) translateY(0px) translateZ(25px);
+  }
+  100% {
+    transform: rotateX(60deg) rotateY(15deg) rotateZ(-40deg) translateY(30px) translateZ(35px);
+  }
+}
+@-webkit-keyframes zoom-out {
+  50% {
+    transform: rotateX(0deg) rotateY(30deg) rotateZ(0deg) translateY(30px) translateZ(-25px);
+  }
+  100% {
+    transform: rotateX(60deg) rotateY(15deg) rotateZ(-40deg) translateY(90px) translateZ(-35px);
+  }
+}
+@-moz-keyframes zoom {
+  50% {
+    transform: rotateX(0deg) rotateY(30deg) rotateZ(0deg) translateY(0px) translateZ(25px);
+  }
+  100% {
+    transform: rotateX(60deg) rotateY(15deg) rotateZ(-40deg) translateY(30px) translateZ(35px);
+  }
+}
+@-moz-keyframes zoom-out {
+  50% {
+    transform: rotateX(0deg) rotateY(30deg) rotateZ(0deg) translateY(30px) translateZ(-25px);
+  }
+  100% {
+    transform: rotateX(60deg) rotateY(15deg) rotateZ(-40deg) translateY(90px) translateZ(-35px);
+  }
+}
+.sixth,
+.seven {
+  display: inline-block;
+  vertical-align: bottom;
+  position: relative;
+  bottom: 0px;
+  margin: 20px 20px 60px 0px;
+  padding: 20px;
+  width: 150px;
+  height: 220px;
+  opacity: .6;
+  filter: drop-shadow(-10px 10px 6px rgba(0, 0, 0, 0.2));
+  transform-origin: 50% 50% 0px;
+  -webkit-filter: drop-shadow(-10px 10px 6px rgba(0, 0, 0, 0.2));
+  -webkit-transform-origin: 50% 50% 0px;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  background: #5f5f5f;
+  border: 1px solid #666;
+  transition: all 0.6s ease-in-out;
+}
+.sixth {
+  z-index: 3;
+}
+.seven {
+  z-index: 10;
+}
+.example-3:hover {
+  cursor: cell;
+  background: #595959;
+  transition: all 0.5s ease-in-out;
+}
+.example-3:not(:hover) {
+  background: #5f5f5f;
+  transition: all 1s ease-in-out;
+}
+.example-3:hover > .sixth,
+.example-3:hover > .seven {
+  color: #fff;
+  transform: translate3d(0px, -35px, 0px) rotate3d(1, -3, 1, 25deg);
+  -webkit-filter: drop-shadow(-20px 20px 6px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(-20px 20px 6px rgba(0, 0, 0, 0.2));
+  border: none;
+  transition: all 0.5s ease-in-out;
+}
+.example-3:hover > .sixth {
+  background: seagreen;
+  transform: translate3d(75px, -35px, 0px) rotate3d(1, -3, 1, 25deg) translateZ(0px);
+  transition: all 0.5s ease-in-out;
+}
+.example-3:hover > .seven {
+  background: rebeccapurple;
+  transform: translate3d(0px, -35px, 0px) rotate3d(1, -3, 1, 25deg) translateZ(50px);
+  transition: all 0.5s ease-in-out;
+}

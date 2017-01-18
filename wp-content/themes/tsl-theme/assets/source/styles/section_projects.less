@@ -1,12 +1,8 @@
 // main: ../less/main.less
+
 /*  S T A R T  O F  section_projects.less  */
 
 
-.section_projects {
-    min-height: 550px;
-    // background-position: center;
-    // background-size: cover;
-}
 .projects_icon {
     position: relative;
     height: 176px;
@@ -18,18 +14,22 @@
 .section_projects .btn_blue {
     max-width: 280px;
     float: none;
+    margin-bottom: 60px;
 }
 
 @media @mobile {
     .section_projects {
         .projects_icon {
-            padding-top: 20px;
+            margin-top: 60px;
         }
         .section__header {
             padding-top: 10px;
         }
         .section__desc {
             padding-top: 10px;
+        }
+        .projects_img {
+            width: 150px;
         }
     }
 }

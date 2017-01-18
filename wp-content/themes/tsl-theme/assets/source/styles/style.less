@@ -36,6 +36,7 @@ h2 {
     margin: 0 auto;
     padding: 0 40px;
     text-align: center;
+    overflow: hidden;
 }
 .section__header {
     padding-top: 30px;
@@ -44,8 +45,8 @@ h2 {
 }
 .section__desc {
     margin: 0 auto;
-    padding: 20px 3px 40px;
-    max-width: 600px;
+    padding: 20px 3px 60px;
+    max-width: 610px;
     .font_main;
 }
 .slide {
@@ -238,18 +239,20 @@ div.wpcf7 img.ajax-loader {
 .btns {
     display: block;
     max-width: 650px;
+    max-width: 780px;
     margin: 0 auto;
 }
 .btn {
     float: left;
     box-sizing: border-box;
     height: 40px;
-    margin: 0 auto;
-    padding: 10px;
+    margin: 0 10px;
+    padding: 0 25px;
+    background-repeat: no-repeat;
     color: @white;
     .font_header;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 40px;
     text-transform: uppercase;
     border: 1px solid @white;
     border-radius: 2px;
@@ -263,10 +266,10 @@ div.wpcf7 img.ajax-loader {
 .btn_prev,
 .btn_next {
     width: 30%;
-    // margin: 10px auto 0;
 }
 .btn_prev {
     margin-left: 0px;
+    padding: 0px 10px;
     &::before {
         content: '';
         display: inline-block;
@@ -285,6 +288,7 @@ div.wpcf7 img.ajax-loader {
 }
 .btn_next {
     float: right;
+    padding: 0px 10px;
     margin-right: 0px;
     &::after {
         content: '';
@@ -303,7 +307,6 @@ div.wpcf7 img.ajax-loader {
 .btn_blue {
     float: none;
     display: inline-block;
-    // min-width: 210px;
     border: 1px solid @main;
     background-color: @main;
     &:hover {
@@ -317,9 +320,9 @@ div.wpcf7 img.ajax-loader {
 }
 .btn_white {
     float: none;
+    display: block;
 }
 .btn_close {
-    // position: absolute;
     content: '';
     display: block;
     top: 25px;
@@ -360,6 +363,11 @@ div.wpcf7 img.ajax-loader {
     }
     .btns {
         display: inline-block;
+        max-width: 360px;
+        margin-bottom: 60px;
+    }
+    .btn {
+        margin: 0;
     }
     .btn_blue,
     .btn_white {
@@ -372,13 +380,21 @@ div.wpcf7 img.ajax-loader {
     }
     .popup-block {
         width: 280px;
-        // padding-left: 10px;
     }
 }
 
 @media @pre-tablet {
     .section__desc {
         max-width: 500px;
+    }
+    .btns {
+        display: inline-block;
+        max-width: 360px;
+    }
+    .btn_prev,
+    .btn_next {
+        width: 48%;
+        margin: 10px auto 0;
     }
 }
 

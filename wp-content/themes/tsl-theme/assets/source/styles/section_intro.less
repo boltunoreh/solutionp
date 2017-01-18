@@ -1,9 +1,9 @@
 // main: ../less/main.less
+
 /*  S T A R T  O F  section_intro.less  */
 
 
 .section_intro {
-    min-height: 550px;
     color: @black;
 }
 .logo__img {
@@ -38,9 +38,10 @@
     }
 }
 
-@media @mobile {
-    .section_intro .section__desc {
-        padding-bottom: 20px;
+
+@media only screen and (max-height: 409px) {
+    .section_intro .next-page-link {
+        display: none;
     }
 }
 
