@@ -1,0 +1,49 @@
+// out: ../css/hover-card.css, sourcemap: false, compress: false
+
+
+@base-color: #FF9F9F;
+@shadow: 10px 5px 15px darken((spin(@base-color, 45)), 50);
+@shadow-hover: 10px 15px 30px darken((spin(@base-color, 45)), 50);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.hover-card {
+  background: spin(@base-color, 45);
+  // padding: 5vh;
+}
+
+.box {
+  margin: 2vh auto;
+  background: @base-color;
+  width: 200px;
+  height: 50vh;
+  border: 10px solid darken(@base-color, 10);
+  cursor: pointer;
+  text-align: center;
+  box-shadow: @shadow;
+  line-height: 50vh;
+  transition-duration: .8s;
+  &:hover {
+    box-shadow: @shadow-hover;
+    margin-top: -1vh;
+    color: spin(@base-color, 50);
+  }
+}
+
+.text {
+  display: inline-block;
+  font: 66px Helvetica, Arial, sans;
+  color: spin(@base-color, 150);
+  vertical-align: middle;
+  border: 2px dotted lighten(@base-color, 5);
+  transition-duration: .8s;
+  &:hover {
+    box-shadow: @shadow-hover;
+    margin-top: -1vh;
+    color: spin(@base-color, 250);
+    border: 10px solid lighten(@base-color, 5);
+  }
+}

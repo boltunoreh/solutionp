@@ -49,7 +49,7 @@
                     $image['url'] = null;
                 }
                 ?>
-                <div id="section1" class="section section_intro" style="background-image: url('<?php echo $image['url']; ?>')">
+                <div id="section1" class="section section_intro fp-auto-height-responsive" style="background-image: url('<?php echo $image['url']; ?>')">
                     <div class="section__inner">
                         <?php if ($image = get_field('index_fs_logo')) { ?>
                             <img src="<?php echo $image['url']; ?>" alt="Solution-P logotype" class="logo__img">
@@ -67,7 +67,8 @@
                     $image['url'] = null;
                 }
                 ?>
-                <div id="section2" class="section section_services" style="background-image: url('<?php echo $image['url']; ?>')">
+                <div id="section2" class="section section_services fp-auto-height-responsive" style="background-image: url('<?php echo $image['url']; ?>')">
+                    <!-- Услуги — слайд Intro -->
                     <div id="slide1" class="slide slide_intro" data-anchor="services">
                         <div class="section__inner">
                             <h2 class="section__header"><? the_field('index_service_title'); ?></h2>
@@ -171,7 +172,7 @@
                 </div>
                 <!-- Проекты -->
                 <?php if ($image = get_field('index_promo_bg')) { ?>
-                <div id="section3" class="section section_projects" style="background-image: url('<?php echo $image['url']; ?>')">
+                <div id="section3" class="section section_projects fp-auto-height-responsive" style="background-image: url('<?php echo $image['url']; ?>')">
                 <?php } ?>
                     <div class="section__inner">
                         <div class="projects_icon">
@@ -194,7 +195,7 @@
                     </div>
                 </div>
                 <!-- Клиенты -->
-                <div id="section4" class="section section_clients">
+                <div id="section4" class="section section_clients fp-auto-height-responsive">
                     <div class="section__inner">
                         <h2 class="section__header">Наши клиенты</h2>
                         <div class="clients">
@@ -222,7 +223,7 @@
                     </div>
                 </div>
                 <!-- Партнеры -->
-                <div id="section5" class="section section_partners">
+                <div id="section5" class="section section_partners fp-auto-height-responsive">
                     <div class="section__inner">
                         <h2 class="section__header">Наши партнеры</h2>
                         <div class="partners">

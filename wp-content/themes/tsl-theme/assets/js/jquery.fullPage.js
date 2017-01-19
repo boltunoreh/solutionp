@@ -90,7 +90,7 @@
 
     // Default options for iScroll.js used when using scrollOverflow
     var iscrollOptions = {
-        scrollbars: true,
+        scrollbars: false,
         mouseWheel: true,
         hideScrollbars: false,
         fadeScrollbars: false,
@@ -141,7 +141,7 @@
             resetSliders: false,
             fadingEffect: false,
             normalScrollElements: null,
-            scrollOverflow: false,
+            scrollOverflow: true,
             scrollOverflowHandler: iscrollHandler,
             scrollOverflowOptions: null,
             touchSensitivity: 5,
@@ -161,9 +161,9 @@
             paddingTop: 0,
             paddingBottom: 0,
             fixedElements: null,
-            responsive: 0, //backwards compabitility with responsiveWiddth
+            responsive: 0, //backwards compabitility with responsiveWidth
             responsiveWidth: 0,
-            responsiveHeight: 620,
+            responsiveHeight: null,
             responsiveSlides: false,
 
             //Custom selectors

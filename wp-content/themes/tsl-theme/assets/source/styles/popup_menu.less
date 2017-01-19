@@ -30,6 +30,9 @@
 .popup__menu-item .menu__link:nth-last-child(1) {
     margin-bottom: 20px;
 }
+.popup_menu .btn {
+    display: inline-block;
+}
 .popup_menu .btn_close {
     position: absolute;
     right: 20px;
@@ -46,6 +49,9 @@
 @media @mobile {
     .popup_menu .btn {
         float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
         max-width: 280px;
     }
     .popup_menu .btn_blue {

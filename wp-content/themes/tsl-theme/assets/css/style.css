@@ -183,14 +183,6 @@ textarea {
 .clearfix:after {
   clear: both;
 }
-.center-line {
-  position: absolute;
-  margin: 0 50%;
-  width: 1px;
-  height: 100%;
-  z-index: 10000;
-  background-color: red;
-}
 /*  E N D  O F  variables.less  */
 /*  S T A R T  O F  vendor-mixins.less  */
 /*  E N D  O F  vendor-mixins.less  */
@@ -227,6 +219,7 @@ h2 {
   margin: 0 auto;
   padding: 0 40px;
   text-align: center;
+  overflow: hidden;
 }
 .section__header {
   padding-top: 30px;
@@ -236,8 +229,8 @@ h2 {
 }
 .section__desc {
   margin: 0 auto;
-  padding: 20px 3px 40px;
-  max-width: 600px;
+  padding: 20px 3px 60px;
+  max-width: 610px;
   font-family: 'FuturaNewBook', sans-serif;
   font-size: 18px;
   line-height: 24px;
@@ -545,6 +538,7 @@ div.wpcf7 img.ajax-loader {
   .btns {
     display: inline-block;
     max-width: 360px;
+    margin-bottom: 60px;
   }
   .btn {
     margin: 0;
@@ -569,13 +563,6 @@ div.wpcf7 img.ajax-loader {
   .btns {
     display: inline-block;
     max-width: 360px;
-  }
-  .btn {
-    margin: 0;
-  }
-  .btn_blue,
-  .btn_white {
-    width: 100%;
   }
   .btn_prev,
   .btn_next {
@@ -922,7 +909,6 @@ div.wpcf7 img.ajax-loader {
 /*  E N D  O F  mslide-nav.less  */
 /*  S T A R T  O F  section_intro.less  */
 .section_intro {
-  min-height: 550px;
   color: #000000;
 }
 .logo__img {
@@ -970,9 +956,9 @@ div.wpcf7 img.ajax-loader {
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-@media only screen and (min-width: 320px) and (max-width: 699px) {
-  .section_intro .section__desc {
-    padding-bottom: 20px;
+@media only screen and (max-height: 409px) {
+  .section_intro .next-page-link {
+    display: none;
   }
 }
 @media only screen and (min-width: 700px) and (max-width: 929px) {
@@ -992,11 +978,7 @@ div.wpcf7 img.ajax-loader {
 }
 /*  E N D  O F  section_intro.less  */
 /*  S T A R T  O F  section_services.less  */
-.section_services {
-  min-height: 640px;
-}
 .section_services .section__header {
-  margin-top: -50px;
   padding: 20px;
   font-size: 34px;
   font-family: 'FuturaDemiC', sans-serif;
@@ -1011,7 +993,7 @@ div.wpcf7 img.ajax-loader {
 }
 .services {
   margin: 0 auto;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   padding-bottom: 25px;
   overflow: hidden;
 }
@@ -1029,11 +1011,6 @@ div.wpcf7 img.ajax-loader {
 }
 .service_link:hover .service__img {
   border-color: #2cb9db;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
 }
 .service_link:hover .icon {
   fill: #2cb9db;
@@ -1117,7 +1094,7 @@ div.wpcf7 img.ajax-loader {
 }
 @media only screen and (min-width: 320px) and (max-width: 699px) {
   .section_services .section__header {
-    margin-top: 20px;
+    margin-top: 100px;
     padding: 0;
   }
   .section_services .section__desc {
@@ -1126,33 +1103,32 @@ div.wpcf7 img.ajax-loader {
   .section_services .service__block {
     width: 50%;
     max-width: 400px;
+    margin-bottom: 40px;
   }
   .section_services .services {
     max-width: 400px;
     padding-bottom: 0;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   .section_services .service__img {
     margin-bottom: 10px;
   }
   .section_services .btn_white {
     max-width: 360px;
+    margin-bottom: 60px;
   }
 }
 @media only screen and (min-width: 700px) and (max-width: 929px) {
   .section_services .section__header {
-    margin-top: -10px;
+    margin-top: 100px;
   }
   .section_services .services {
     margin-bottom: 20px;
   }
-  .section_services .btn_white {
-    max-width: 360px;
-  }
 }
 @media only screen and (min-width: 930px) and (max-width: 1279px) {
   .section_services .section__header {
-    margin-top: -10px;
+    margin-top: 100px;
   }
   .section_services .services {
     margin-bottom: 20px;
@@ -1261,9 +1237,6 @@ div.wpcf7 img.ajax-loader {
 }
 /*  E N D  O F  section_services.less  */
 /*  S T A R T  O F  section_projects.less  */
-.section_projects {
-  min-height: 550px;
-}
 .projects_icon {
   position: relative;
   height: 176px;
@@ -1274,10 +1247,11 @@ div.wpcf7 img.ajax-loader {
 .section_projects .btn_blue {
   max-width: 280px;
   float: none;
+  margin-bottom: 60px;
 }
 @media only screen and (min-width: 320px) and (max-width: 699px) {
   .section_projects .projects_icon {
-    padding-top: 20px;
+    margin-top: 60px;
   }
   .section_projects .section__header {
     padding-top: 10px;
@@ -1285,12 +1259,14 @@ div.wpcf7 img.ajax-loader {
   .section_projects .section__desc {
     padding-top: 10px;
   }
+  .section_projects .projects_img {
+    width: 150px;
+  }
 }
 /*  E N D  O F  section_projects.less  */
 /*  S T A R T  O F  section_clients.less  */
 .section_clients {
   background-color: #4dbcd2;
-  min-height: 600px;
 }
 .section_clients .section__header {
   display: none;
@@ -1376,10 +1352,12 @@ div.wpcf7 img.ajax-loader {
 @media only screen and (min-width: 320px) and (max-width: 699px) {
   .section_clients .section__header {
     display: block;
+    margin-top: 60px;
   }
   .section_clients .clients {
     max-width: 450px;
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 60px;
     padding: 0;
   }
   .section_clients .client {
@@ -1401,6 +1379,7 @@ div.wpcf7 img.ajax-loader {
 /*  S T A R T  O F  section_partners.less  */
 .section_partners {
   background-color: #468cd4;
+  background-color: #0091b7;
 }
 .section_partners .section__header {
   display: none;
@@ -1486,10 +1465,12 @@ div.wpcf7 img.ajax-loader {
 @media only screen and (min-width: 320px) and (max-width: 699px) {
   .section_partners .section__header {
     display: block;
+    margin-top: 60px;
   }
   .section_partners .partners {
     max-width: 450px;
     margin-top: 20px;
+    margin-bottom: 60px;
     padding: 0;
   }
   .section_partners .partner {
@@ -1628,6 +1609,9 @@ div.wpcf7 img.ajax-loader {
 .popup__menu-item .menu__link:nth-last-child(1) {
   margin-bottom: 20px;
 }
+.popup_menu .btn {
+  display: inline-block;
+}
 .popup_menu .btn_close {
   position: absolute;
   right: 20px;
@@ -1643,6 +1627,9 @@ div.wpcf7 img.ajax-loader {
 @media only screen and (min-width: 320px) and (max-width: 699px) {
   .popup_menu .btn {
     float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 280px;
   }
   .popup_menu .btn_blue {

@@ -5,13 +5,11 @@
 
 .section_clients {
     background-color: @bg;
-    min-height: 600px;
 }
 .section_clients .section__header {
     display: none;
 }
 .clients {
-    // max-width: 1000px;
     padding: 20px 0;
     margin: 0 auto;
     margin-top: 80px;
@@ -54,17 +52,18 @@
 .section_clients .img_white,
 .section_clients .img_color {
     width: 100%;
-    // max-width: 200px;
 }
 
 @media @mobile {
     .section_clients {
         .section__header {
             display: block;
+            margin-top: 60px;
         }
         .clients {
             max-width: 450px;
-            margin-top: 20px;
+            margin-top: 40px;
+            margin-bottom: 60px;
             padding: 0;
         }
         .client {
