@@ -8,8 +8,8 @@
             <div class="header__inner">
                 <!-- Логотип -->
                 <a href="#intro" class="logo_header">
-                    <img src="<?php echo tmpl_dir ?>/assets/img/logo_small.png"
-                         srcset="<?php echo tmpl_dir ?>/assets/img/logo_small_x2.png 2x" alt="Solution-P logotype"
+                    <img src="<?php echo tmpl_dir ?>assets/img/logo_small.png"
+                         srcset="<?php echo tmpl_dir ?>assets/img/logo_small_x2.png 2x" alt="Solution-P logotype"
                          class="logo__img_header">
                 </a>
                 <!-- Меню -->
@@ -51,8 +51,8 @@
                 ?>
                 <div id="section1" class="section section_intro fp-auto-height-responsive" style="background-image: url('<?php echo $image['url']; ?>')">
                     <div class="section__inner">
-                        <img src="<?php echo tmpl_dir ?>/assets/img/logo.png"
-                             srcset="<?php echo tmpl_dir ?>/assets/img/logo_x2.png 2x"
+                        <img src="<?php echo tmpl_dir ?>assets/img/logo.png"
+                             srcset="<?php echo tmpl_dir ?>assets/img/logo_x2.png 2x"
                              alt="Solution-P logotype" class="logo__img">
                         <p class="section__desc">
                             <?php the_field('index_fs_text'); ?>
