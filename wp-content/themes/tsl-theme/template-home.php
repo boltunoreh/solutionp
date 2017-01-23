@@ -8,9 +8,9 @@
             <div class="header__inner">
                 <!-- Логотип -->
                 <a href="#intro" class="logo_header">
-                    <?php if ($image = get_field('logo', 'option')) { ?>
-                        <img src="<?php echo $image['url']; ?>" alt="Solution-P logotype" class="logo__img_header">
-                    <?php } ?>
+                    <img src="<?php echo tmpl_dir ?>/assets/img/logo_small.png"
+                         srcset="<?php echo tmpl_dir ?>/assets/img/logo_small_x2.png 2x" alt="Solution-P logotype"
+                         class="logo__img_header">
                 </a>
                 <!-- Меню -->
                 <div class="header__menu">
@@ -51,9 +51,9 @@
                 ?>
                 <div id="section1" class="section section_intro fp-auto-height-responsive" style="background-image: url('<?php echo $image['url']; ?>')">
                     <div class="section__inner">
-                        <?php if ($image = get_field('index_fs_logo')) { ?>
-                            <img src="<?php echo $image['url']; ?>" alt="Solution-P logotype" class="logo__img">
-                        <?php } ?>
+                        <img src="<?php echo tmpl_dir ?>/assets/img/logo.png"
+                             srcset="<?php echo tmpl_dir ?>/assets/img/logo_x2.png 2x"
+                             alt="Solution-P logotype" class="logo__img">
                         <p class="section__desc">
                             <?php the_field('index_fs_text'); ?>
                         </p>
